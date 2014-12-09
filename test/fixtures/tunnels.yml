@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nat_server_ip: MyString
+  customer_vpn_ip: MyString
+  customer_server_ip: MyString
+  rogers_vpn_ip: MyString
+  rogers_mobile_ip: MyString
+  rogers_gre_tunnel_ip: MyString
+  customer_gre_tunnel_ip: MyString
+  node_id: 1
+
+two:
+  nat_server_ip: MyString
+  customer_vpn_ip: MyString
+  customer_server_ip: MyString
+  rogers_vpn_ip: MyString
+  rogers_mobile_ip: MyString
+  rogers_gre_tunnel_ip: MyString
+  customer_gre_tunnel_ip: MyString
+  node_id: 1

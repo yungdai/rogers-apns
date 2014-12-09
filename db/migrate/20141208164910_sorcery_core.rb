@@ -15,6 +15,7 @@ class SorceryCore < ActiveRecord::Migration
       t.string :phone_number2
       t.boolean :administrator
       t.string :username
+      t.integer :apn_id
 
       t.timestamps
     end

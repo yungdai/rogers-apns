@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  services: MyString
+  action: MyString
+  remarks: MyText
+  rogers_source_ip: MyString
+  customer_source_ip: MyString
+
+two:
+  services: MyString
+  action: MyString
+  remarks: MyText
+  rogers_source_ip: MyString
+  customer_source_ip: MyString
