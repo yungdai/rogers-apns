@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2557987325">
+    <data-source source="LOCAL" name="Rails rogers-apns: development" uuid="8ac27dae-a741-48c6-8783-432293920564">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:rogers-apns_development</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails rogers-apns: test" uuid="3d9c168a-1461-48e3-8eb1-ce9bf9bcd444">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:rogers-apns_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails rogers-apns: production" uuid="9a05ca95-33cc-4c75-af7f-4cf7900d38f0">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:rogers-apns_production</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

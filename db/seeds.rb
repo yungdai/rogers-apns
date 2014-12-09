@@ -19,3 +19,4 @@ admin.phone_number2 = '4162946097'
 admin.username = 'yungdai'
 admin.email - 'yungchidai@gmail.com'
 admin.password = '12345'
+admin.save

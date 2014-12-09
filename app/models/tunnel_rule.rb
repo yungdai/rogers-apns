@@ -1,3 +1,3 @@
 class TunnelRule < ActiveRecord::Base
-  belongs to tunnel
+  belongs_to :tunnel
 end

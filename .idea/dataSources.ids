@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails rogers-apns: development" uuid="8ac27dae-a741-48c6-8783-432293920564">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails rogers-apns: test" uuid="3d9c168a-1461-48e3-8eb1-ce9bf9bcd444">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails rogers-apns: production" uuid="9a05ca95-33cc-4c75-af7f-4cf7900d38f0">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
