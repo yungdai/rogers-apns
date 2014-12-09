@@ -9,6 +9,7 @@
 admin = User.new
 admin.first_name = 'Yung'
 admin.last_name = 'Dai'
+admin.email = 'yungchidai@gmail.com'
 admin.company_name = 'Works for myself'
 admin.street_address = '375 Berkeley St.'
 admin.city = 'Toronto'
@@ -17,6 +18,5 @@ admin.country = 'Canada'
 admin.phone_number1 = '4169236673'
 admin.phone_number2 = '4162946097'
 admin.username = 'yungdai'
-admin.email - 'yungchidai@gmail.com'
 admin.password = '12345'
 admin.save
