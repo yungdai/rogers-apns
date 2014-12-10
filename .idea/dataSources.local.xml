@@ -2,15 +2,17 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails rogers-apns: development" uuid="8ac27dae-a741-48c6-8783-432293920564">
-      <first-sync>true</first-sync>
+      <schema-pattern>rogers-apns_development.*</schema-pattern>
+      <default-schemas>rogers-apns_development.*</default-schemas>
     </data-source>
     <data-source name="Rails rogers-apns: test" uuid="3d9c168a-1461-48e3-8eb1-ce9bf9bcd444">
-      <first-sync>true</first-sync>
+      <schema-pattern>rogers-apns_test.*</schema-pattern>
+      <default-schemas>rogers-apns_test.*</default-schemas>
     </data-source>
     <data-source name="Rails rogers-apns: production" uuid="9a05ca95-33cc-4c75-af7f-4cf7900d38f0">
       <first-sync>true</first-sync>
-      <user-name>yung_dai</user-name>
-      <user-password>df9bdfdedfc7dfc5dfd9dfcfdfc6dfcfdfd3df9b</user-password>
+      <user-name>rogers-apns</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff8dfe5dfeddfefdff8dff9df87dfebdffadfe4dff9dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
     </data-source>
   </component>
 </project>
