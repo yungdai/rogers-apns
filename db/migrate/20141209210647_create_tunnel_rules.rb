@@ -6,6 +6,7 @@ class CreateTunnelRules < ActiveRecord::Migration
       t.text :remarks
       t.string :rogers_source_ip
       t.string :customer_source_ip
+      t.integer :tunnel_id
 
       t.timestamps
     end

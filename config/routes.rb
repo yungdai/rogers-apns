@@ -1,20 +1,65 @@
 Rails.application.routes.draw do
-  get 'apns/show'
+  get 'sessions/create'
 
-  get 'apns/edit'
+  get 'sessions/destroy'
 
-  get 'apns/index'
+  get 'tunnels_rules/show'
 
-  get 'apns/new'
+  get 'tunnels_rules/new'
+
+  get 'tunnels_rules/edit'
+
+  get 'tunnels_rules/destroy'
+
+  get 'tunnels/show'
+
+  get 'tunnels/new'
+
+  get 'tunnels/edit'
+
+  get 'tunnels/destroy'
+
+  get 'nodes/show'
+
+  get 'nodes/new'
+
+  get 'nodes/edit'
+
+  get 'nodes/destroy'
+
+  # get 'apns/show'
+  #
+  # get 'apns/edit'
+  #
+  # get 'apns/index'
+  #
+  # get 'apns/new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+  resources :apns, only: [:new, :create, :show, :index]
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:create, :destroy, :new]
+  resources :nodes
+  resources :tunnels
+  resources :tunnels_rules
+  resources :users do
+    member do
+      get :activate
+    end
+  end
+
+  root 'apns#index'
+
+  # create new routes called login/logout that does a <sessions#new/sessions#destroy> - Yung Dai
+  get 'login' => 'sessions#new', as: 'login'
+  get 'logout' => 'sessions#destroy', as: 'logout'
+  get "signup" => "users#new", :as => "signup"
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

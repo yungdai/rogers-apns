@@ -13,6 +13,7 @@ class CreateApns < ActiveRecord::Migration
       t.string :primary_dns
       t.string :secondary_dns
       t.integer :contact_id
+      t.integer :user_id
 
       t.timestamps
     end

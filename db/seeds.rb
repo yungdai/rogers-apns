@@ -19,4 +19,5 @@ admin.phone_number1 = '4169236673'
 admin.phone_number2 = '4162946097'
 admin.username = 'yungdai'
 admin.password = '12345'
+admin.administrator = true
 admin.save

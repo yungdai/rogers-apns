@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_filter :require_login, :only => [:index, :new, :create, :activate]
+
   def new
     @user = User.new
   end
@@ -15,6 +17,28 @@ class UsersController < ApplicationController
     end
   end
 
+  def activate
+    if (@user = User.load_from_activation_token(params[:id]))
+      @user.activate!
+      redirect_to(login_path, :notice => 'User was successfully activated.')
+    else
+      not_authenticated
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(user_params)
+      redirect_to "/pictures/#{@picture.id}"
+    else
+      render :edit
+    end
+  end
   private
   def user_params
     params.require(:user).permit(
@@ -26,6 +50,7 @@ class UsersController < ApplicationController
         :city,
         :phone_number1,
         :phone_number2,
+        :administrator,
         :username,
         :password,
         :password_confirmation

@@ -1,5 +1,5 @@
 class Apn < ActiveRecord::Base
-  has_many :users
+  belongs_to :user
   has_many :nodes
   has_many :contacts
 
