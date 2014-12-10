@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   resources :users, only: [:new, :create, :show]
-  resources :sessions, only: [:index, :create, :destroy, :new]
+  resources :sessions, only: [:create, :destroy, :new]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

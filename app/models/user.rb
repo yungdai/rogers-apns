@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_format_of :phone_number1, :with => /\d{3}[ -.]?\d{3}[ -.]?\d{4}/, :message => 'Phone number must be in the format XXX-XXX-XXXX. Dashes/spaces/dots optional'
   validates_format_of :phone_number2, :with => /\d{3}[ -.]?\d{3}[ -.]?\d{4}/, :message => 'Phone number must be in the format XXX-XXX-XXXX. Dashes/spaces/dots optional'
+
+  # this is so when I call @user.name it will take the first and last name and put them together with a space.
   def name
     [first_name,last_name].join(' ')
   end

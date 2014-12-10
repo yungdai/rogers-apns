@@ -4,9 +4,31 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     if @user.save
-      redirect_to
+      # automatically log in the user to the website after he's created himself - this is method gained from sorcery
+      auto_login(@user)
+      # used when a user tries to access a page while logged out, is asked to login
+      redirect_back_or_to root_url, :notice => "Signed up!"
+    else
+      render :new
     end
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(
+        :email,
+        :first_name,
+        :last_name,
+        :company_name,
+        :street_address,
+        :city,
+        :phone_number1,
+        :phone_number2,
+        :username,
+        :password,
+        :password_confirmation
+    )
   end
 end
