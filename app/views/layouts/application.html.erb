@@ -11,276 +11,242 @@
     <%= csrf_meta_tags %>
   </head>
 
+  <body>
+
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
 
 
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
 
-  <div class="fixed">
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
+    <li class="name">
+      <h1>
+        <a href="#">
+          Rogers Custom APN
+        </a>
+      </h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
 
-        <li class="name">
-          <h1>
-            <a href="#">
-              Rogers Custom APN
-            </a>
-          </h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
+  <section class="top-bar-section">
 
-      <section class="top-bar-section">
-            <ul class="left">
-              <li class="divider"></li>
-              <li class="has-dropdown">
-              <% if logged_in? %>
-
-                <% if current_user.administrator? %>
-                    <a class="active" href="#">Administrative Options</a>
-
-                    <ul class="dropdown">
-                      <li><label>Administrative Options</label></li>
-                      <li><a href="#" class="new-user"><%= link_to "Add new user", new_user_path %></a></li>
-                      <li><a href="#" class="new-apn"><%= link_to "Add new APN", new_apn_path %></li>
-                <% else %>
-                    <a class="active" href="#">User options</a>
-
-                    <ul class="dropdown">
-                      <li><label>Section Name</label></li>
-                      <li><a href="#" class="new-apn"><%= link_to "Add new APN", new_apn_path %></a></li>
-                      <li><a href="#">Dropdown Option</a></li>
-
-                <% end %>
-
-            <% else %>
-                  <a class="active" href="#">Login Options</a>
-
-                  <ul class="dropdown">
-                    <li><a href="#" class="login"><%= link_to "Login", :login %></a></li>
-             <% end %>
-
-
-              <li><a href="#">Dropdown Option</a></li>
-              <li class="divider"></li>
-              <li><label>Section Name</label></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li class="divider"></li>
-              <li><a href="#">See all →</a></li>
-            </ul>
-          </li>
+    <ul class="left">
+      <li class="divider"></li>
+      <li class="has-dropdown">
+        <a class="active" href="#">Main Item 1</a>
+        <ul class="dropdown">
+          <li><label>Section Name</label></li>
+          <li><a href="#" class="">Dropdown Level 1</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
           <li class="divider"></li>
-          <li><a href="#">Main Item 2</a></li>
+          <li><label>Section Name</label></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
           <li class="divider"></li>
-          <li class="has-dropdown">
-            <a href="#">Main Item 3</a>
-            <ul class="dropdown">
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li class="divider"></li>
-              <li><a href="#">See all →</a></li>
-            </ul>
-          </li>
-
+          <li><a href="#">See all →</a></li>
         </ul>
-
-
-        <ul class="right">
+      </li>
+      <li class="divider"></li>
+      <li><a href="#">Main Item 2</a></li>
+      <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#">Main Item 3</a>
+        <ul class="dropdown">
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
           <li class="divider"></li>
+          <li><a href="#">See all →</a></li>
+        </ul>
+      </li>
+
+    </ul>
+
+
+    <ul class="right">
+      <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#">Main Item 4</a>
+        <ul class="dropdown">
+          <li><label>Section Name</label></li>
           <li class="has-dropdown">
-            <a href="#">Main Item 4</a>
+            <a href="#" class="">Has Dropdown, Level 1</a>
             <ul class="dropdown">
-              <li><label>Section Name</label></li>
+              <li><a href="#">Dropdown Options</a></li>
+              <li><a href="#">Dropdown Options</a></li>
               <li class="has-dropdown">
-                <a href="#" class="">Has Dropdown, Level 1</a>
-                <ul class="dropdown">
-                  <li><a href="#">Dropdown Options</a></li>
-                  <li><a href="#">Dropdown Options</a></li>
-                  <li class="has-dropdown">
-                    <a href="#">Has Dropdown, Level 2</a>
-                    <ul class="dropdown test">
-                      <li><a href="#">Subdropdown Option</a></li>
-                      <li><a href="#">Subdropdown Option</a></li>
-                      <li><a href="#">Subdropdown Option</a></li>
-                    </ul>
-                  </li>
+                <a href="#">Has Dropdown, Level 2</a>
+                <ul class="dropdown test">
                   <li><a href="#">Subdropdown Option</a></li>
                   <li><a href="#">Subdropdown Option</a></li>
                   <li><a href="#">Subdropdown Option</a></li>
                 </ul>
               </li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li class="divider"></li>
-              <li><label>Section Name</label></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li class="divider"></li>
-              <li><a href="#">See all →</a></li>
+              <li><a href="#">Subdropdown Option</a></li>
+              <li><a href="#">Subdropdown Option</a></li>
+              <li><a href="#">Subdropdown Option</a></li>
             </ul>
           </li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
           <li class="divider"></li>
-          <li><a href="#">Main Item 5</a></li>
+          <li><label>Section Name</label></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
           <li class="divider"></li>
-          <li class="has-dropdown">
-            <% if current_user %>
-                <a href="#"><%= current_user.name %></a>
-                <ul class="dropdown">
-                  <li><%= link_to "Log Out", :logout %></li>
-            <% else %>
-                <a href="#"><%= link_to "Sign up", new_user_path %></a>
-            <ul class="dropdown">
-              <li><a href="#"><%= link_to "log in", :login %>/li>
-              <li><a href="#">Dropdown Option</a></li>
-                <li><%= link_to "Sign up", new_user_path %></li>
-                <li></li>
-              <li class="divider"></li>
-              <li><a href="#">See all →</a></li>
-            </ul>
-            <% end %>
-          </li>
+          <li><a href="#">See all →</a></li>
         </ul>
-      </section>
-    </nav>
+      </li>
+      <li class="divider"></li>
+      <li><a href="#">Main Item 5</a></li>
+      <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#">Main Item 6</a>
+        <ul class="dropdown">
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li class="divider"></li>
+          <li><a href="#">See all →</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+
+
+
+
+
+<div class="row">
+
+  <div class="large-3 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a three columns grid panel with an arbitrary height.</p>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+    </div>
+  </div>
+  <div class="large-3  columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a three columns grid panel with an arbitrary height.</p>
+    </div>
   </div>
 
-
-  <body>
-  <% flash.each do |name, message| %>
-      <div> <%= [name, message] %></div>
-  <% end %>
-  <%= yield %>
-  <%= javascript_include_tag "application" %>
-
-  </body>
+</div>
 
 
-<a>Ignore the HMTL Below as it is the template for foundation to be used on other pages</a>
 
+<div class="row">
+
+  <div class="large-6 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+    </div>
+  </div>
+  <div class="large-2 columns">
+    <div class="panel">
+      <p>
+        <img src="http://placehold.it/200x200"/>
+      </p>
+    </div>
+  </div>
+  <div class="large-4 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a four columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami.</p>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row">
+
+  <div class="large-4 columns">
+    <div class="panel">
+      <p>
+        <img src="http://placehold.it/400x300"/>
+      </p>
+    </div>
+  </div>
+  <div class="large-4 columns">
+    <div class="panel">
+      <p>
+        <img src="http://placehold.it/400x300"/>
+      </p>
+    </div>
+  </div>
+  <div class="large-4 columns">
+    <div class="panel">
+      <p>
+        <img src="http://placehold.it/400x300"/>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row">
+
+  <div class="large-6 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+    </div>
+  </div>
+  <div class="large-3 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a three columns grid panel with an arbitrary height.</p>
+    </div>
+  </div>
+  <div class="large-3 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a three columns grid panel with an arbitrary height.</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<footer class="row">
+  <div class="large-12 columns">
+    <hr/>
     <div class="row">
-
-      <div class="large-3 columns">
-        <div class="panel">
-          <h5>Panel Title</h5>
-          <p>This is a three columns grid panel with an arbitrary height.</p>
-        </div>
+      <div class="large-6 columns">
+        <p>© Copyright no one at all. Go to town.</p>
       </div>
       <div class="large-6 columns">
-        <div class="panel">
-          <h5>Panel Title</h5>
-          <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
-        </div>
+        <ul class="inline-list right">
+          <li><a href="#">Section 1</a></li>
+          <li><a href="#">Section 2</a></li>
+          <li><a href="#">Section 3</a></li>
+          <li><a href="#">Section 4</a></li>
+        </ul>
       </div>
-      <div class="large-3  columns">
-        <div class="panel">
-          <h5>Panel Title</h5>
-          <p>This is a three columns grid panel with an arbitrary height.</p>
-        </div>
-      </div>
-
     </div>
-
-
-
-    <div class="row">
-
-      <div class="large-6 columns">
-        <div class="panel">
-          <h5>Panel Title</h5>
-          <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
-        </div>
-      </div>
-      <div class="large-2 columns">
-        <div class="panel">
-          <p>
-            <img src="http://placehold.it/200x200"/>
-          </p>
-        </div>
-      </div>
-      <div class="large-4 columns">
-        <div class="panel">
-          <h5>Panel Title</h5>
-          <p>This is a four columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami.</p>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="row">
-
-      <div class="large-4 columns">
-        <div class="panel">
-          <p>
-            <img src="http://placehold.it/400x300"/>
-          </p>
-        </div>
-      </div>
-      <div class="large-4 columns">
-        <div class="panel">
-          <p>
-            <img src="http://placehold.it/400x300"/>
-          </p>
-        </div>
-      </div>
-      <div class="large-4 columns">
-        <div class="panel">
-          <p>
-            <img src="http://placehold.it/400x300"/>
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="row">
-
-      <div class="large-6 columns">
-        <div class="panel">
-          <h5>Panel Title</h5>
-          <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
-        </div>
-      </div>
-      <div class="large-3 columns">
-        <div class="panel">
-          <h5>Panel Title</h5>
-          <p>This is a three columns grid panel with an arbitrary height.</p>
-        </div>
-      </div>
-      <div class="large-3 columns">
-        <div class="panel">
-          <h5>Panel Title</h5>
-          <p>This is a three columns grid panel with an arbitrary height.</p>
-        </div>
-      </div>
-
-    </div>
-
-
-
-
-
-
-
-    <footer class="row">
-      <div class="large-12 columns">
-        <hr/>
-        <div class="row">
-          <div class="large-6 columns">
-            <p>© Copyright no one at all. Go to town.</p>
-          </div>
-          <div class="large-6 columns">
-            <ul class="inline-list right">
-              <li><a href="#">Section 1</a></li>
-              <li><a href="#">Section 2</a></li>
-              <li><a href="#">Section 3</a></li>
-              <li><a href="#">Section 4</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-</html>
+  </div>
+</footer>
