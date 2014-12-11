@@ -1,0 +1,10 @@
+.top-bar {
+    /*padding-top: 30px; */
+}
+
+.bottom-bar{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    margin-bottom: 0px;
+}

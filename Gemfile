@@ -38,11 +38,16 @@ gem 'cancancan', '~> 1.9'
 # gem for image processing
 gem "paperclip", "~> 4.2"
 
+
 # gem for nested forms
 gem "cocoon"
 
 # foundating gem for look and feel
 gem 'foundation-rails'
+
+gem 'awesome_print'
+gem 'pry-rails'
+gem 'quiet_assets'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
