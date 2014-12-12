@@ -1,2 +1,136 @@
-<h1>Apns#index</h1>
-<p>Find me in app/views/apns/index.html.erb</p>
+<h1>APN Index</h1>
+<!--check to see if the current user is an adminstrator-->
+<% if current_user.administrator? %>
+        <a>You'rea an admin</a>
+<% else %>
+    <!--if you are a user you should only see you're APN's-->
+          <a>You're a customer</a>
+<% end %>
+<br>
+<a>Ignore the HMTL Below as it is the template for foundation to be used on other pages</a>
+
+<div class="row">
+
+  <div class="large-3 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a three columns grid panel with an arbitrary height.</p>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+    </div>
+  </div>
+  <div class="large-3  columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a three columns grid panel with an arbitrary height.</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="row">
+
+  <div class="large-6 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+    </div>
+  </div>
+  <div class="large-2 columns">
+    <div class="panel">
+      <p>
+        <img src="http://placehold.it/200x200"/>
+      </p>
+    </div>
+  </div>
+  <div class="large-4 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a four columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami.</p>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row">
+
+  <div class="large-4 columns">
+    <div class="panel">
+      <p>
+        <img src="http://placehold.it/400x300"/>
+      </p>
+    </div>
+  </div>
+  <div class="large-4 columns">
+    <div class="panel">
+      <p>
+        <img src="http://placehold.it/400x300"/>
+      </p>
+    </div>
+  </div>
+  <div class="large-4 columns">
+    <div class="panel">
+      <p>
+        <img src="http://placehold.it/400x300"/>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row">
+
+  <div class="large-6 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+    </div>
+  </div>
+  <div class="large-3 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a three columns grid panel with an arbitrary height.</p>
+    </div>
+  </div>
+  <div class="large-3 columns">
+    <div class="panel">
+      <h5>Panel Title</h5>
+      <p>This is a three columns grid panel with an arbitrary height.</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<footer class="row">
+  <div class="large-12 columns">
+    <hr/>
+    <div class="row">
+      <div class="large-6 columns">
+        <p>© Copyright no one at all. Go to town.</p>
+      </div>
+      <div class="large-6 columns">
+        <ul class="inline-list right">
+          <li><a href="#">Section 1</a></li>
+          <li><a href="#">Section 2</a></li>
+          <li><a href="#">Section 3</a></li>
+          <li><a href="#">Section 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+</html>
