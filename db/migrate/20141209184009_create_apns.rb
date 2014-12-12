@@ -3,7 +3,6 @@ class CreateApns < ActiveRecord::Migration
     create_table :apns do |t|
       t.integer :rogers_apn_id
       t.integer :fido_apn_id
-      t.string :apn_name
       t.string :msd_code
       t.boolean :static_ip
       t.boolean :control_center
