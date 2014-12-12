@@ -1,5 +1,9 @@
-<h1>UserMailer#activation_needed_email</h1>
+Welcome to the Rogers Custom APN Webite, <%= @user.username %>
+===============================================
 
-<p>
-  <%= @greeting %>, find me in app/views/user_mailer/activation_needed_email.html.erb
-</p>
+You have successfully signed up to the Rogers Customer APN Application,
+your username is: <%= @user.username %>.
+
+To login to the site, just follow this link: <a href ="<%= @url %>"><%= @url %></a> .
+
+Thanks for joining and have a great day!
