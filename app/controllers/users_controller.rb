@@ -9,9 +9,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # automatically log in the user to the website after he's created himself - this is method gained from sorcery
-      auto_login(@user)
-      # used when a user tries to access a page while logged out, is asked to login
-      redirect_back_or_to root_url, :notice => "Signed up!"
+      # auto_login(@user)
+      # # used when a user tries to access a page while logged out, is asked to login
+      redirect_back_or_to root_url, :notice => "Signed up!  Please log in after you have authenicated"
     else
       render :new
     end

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'contacts/index'
+
+  get 'contacts/show'
+
+  get 'contacts/edit'
+
+  get 'contacts/destroy'
+
   get 'sessions/create'
 
   get 'sessions/destroy'

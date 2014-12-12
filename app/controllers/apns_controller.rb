@@ -14,6 +14,8 @@ class ApnsController < ApplicationController
   end
 
   def new
+    @apn = Apn.new
+    @apn.contacts.build
   end
 
   private
@@ -21,5 +23,38 @@ class ApnsController < ApplicationController
   def user_ownership
     @apn = Apn.find(params[:id])
     redirect_to apn_path(@apn) unless current_user == @apn.user || current_user == @user.administrator?
+  end
+
+  def apn_params
+    params.require(:apn).permit(
+                            :apn_name,
+                            :project_name,
+                            :project_number,
+                            :rogers_apn_id,
+                            :fido_apn_id,
+                            :msd_code,
+                            :static_ip,
+                            :control_center,
+                            :context_id,
+                            :control_center_account_name,
+                            :control_center_account_id,
+                            :primary_dns,
+                            :secondary_dns,
+                            #makes sure that I can nest the contact model into the apn form
+                            contact_attributes: [
+                                :first_name,
+                                :last_name,
+                                :company_name,
+                                :street_address,
+                                :city,
+                                :province_state,
+                                :country,
+                                :email,
+                                :phone_number1,
+                                :phone_number2,
+                                :technical_contact,
+                                :business_contact,
+                            ]
+    )
   end
 end
