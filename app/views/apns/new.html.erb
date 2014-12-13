@@ -24,51 +24,10 @@
     <p>
       APN Contact Information:
       <%= f.fields_for :contacts do |contact| %>
-        <p>
-          <%= contact.label :business_contact %>
-          <%= contact.check_box :business_contact %>
-        </p>
-        <p>
-          <%= contact.label :technical_contact %>
-          <%= contact.check_box :technical_contact %>
-        </p>
-        <p>
-          <%= contact.label :first_name %>
-          <%= contact.text_field :first_name %>
-        </p>
-        <p>
-          <%= contact.label :last_name %>
-          <%= contact.text_field :last_name %>
-        </p>
-        <p>
-          <%= contact.label :company_name %>
-          <%= contact.text_field :company_name %>
-        </p>
-        <p>
-          <%= contact.label :street_address %>
-          <%= contact.text_field :street_address %>
-        </p>
-        <p>
-          <%= contact.label :city %>
-          <%= contact.text_field :city %>
-        </p>
-        <p>
-          <%= contact.label :province_state %>
-          <%= contact.text_field :province_state %>
-        </p>
-        <p>
-          <%= contact.label :email %>
-          <%= contact.text_field :email %>
-        </p>
-        <p>
-          <%= contact.label :phone_number1 %>
-          <%= contact.text_field :phone_number1 %>
-        </p>
-        <p>
-          <%= contact.label :phone_number2 %>
-          <%= contact.text_field :phone_number2 %>
-        </p>
+          <% render "contact_fields", f: contact %>
       <% end %>
+        <%= link_to_add_association "Add Another Contact", f, :contacts %>
+      </div>
     </p>
 
 
