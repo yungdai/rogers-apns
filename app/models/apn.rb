@@ -3,5 +3,4 @@ class Apn < ActiveRecord::Base
   has_many :nodes, :dependent => :destroy
   has_many :contacts, :dependent => :destroy
   accepts_nested_attributes_for :contacts, :nodes
-
 end

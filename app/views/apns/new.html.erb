@@ -1,5 +1,5 @@
-<h1>Apns#new</h1>
-<p>Find me in app/views/apns/new.html.erb</p>
+<h1>Custom APN Form</h1>
+<p>Please fill out the sections below/p>
 
 <%= form_for @apn do |f| %>
     <% if @apn.errors.any? %>
@@ -20,19 +20,80 @@
       <%= f.label :project_number %>
       <%= f.text_field :project_number %>
     </p>
-    <hr>
+<hr>
     <p>
+      <!--this code below is a nested cocoon form for contacts-->
       APN Contact Information:
       <%= f.fields_for :contacts do |contact| %>
           <% render "contact_fields", f: contact %>
       <% end %>
         <%= link_to_add_association "Add Another Contact", f, :contacts %>
-      </div>
     </p>
 
+<hr>
+
+    <%= f.select :redundancy_type, options_for_select([
+                                                              "Selection type 1",
+                                                              "Selection type 2"
+                                                      ])%>
 
 
-      <%= f.submit "Submit" %>
+<hr>
+    <p>
+      <%= f.label :apn_name %>
+      <%= f.text_field :apn_name %>
     </p>
+    <% if current_user.administrator? %>
+    <p>
+      (To be filled out by Rogers)
+      <%= f.label :rogers_apn_id %>
+      <%= f.text_field :rogers_apn_id %>
+    </p>
+    <p>
+      <%= f.label :fido_apn_id %>
+      <%= f.text_field :fido_apn_id %>
+    </p>
+    <p>
+      <%= f.label :msd_code %>
+      <%= f.text_field :msd_code %>
+    </p>
+    <p>
+      Context ID:
+      <%= f.text_field :context_id %>
+          Max download rate: 250000000<br>
+          Max upload rate: 100000000<br>
+          QoS profile (HSS-EsmQosProfileQci): 8<br>
+          Priority (HSS-EsmQosProfileArp): 10<br>
+          Charging Chars (HSS-EsmEpsBearerChargingChars) : 9<br>
+          PDN Type: V4  OR V6 or Dual stack V4V6 <br>
+
+          </p>
+<h3>Select Redundancy Type:</h3>
+
+        Select one of the following designs…<br>
+        <br>
+        Note:  Please ensure a discussion has taken place with regards to the type of redundancy required.<br>
+        Note: Please fill out BGP/GRE form in Appendix if applicable.<br>
+        When 2 GGSNs are used in an APN design they will automatically take over from each other should a device not be able to establish a PDP context (initiate a data session) <br>
+
+        <%= f.select :redundancy_type, options_for_select([
+                                                                  "1 GGSN/SSR, 1 Egress Point, GRE, Static Source Routing ",
+                                                                  "1 GGSN/SSR, 1 Egress Point, GRE, BGP Routing",
+                                                                  "1 GGSN/SSR, 1 Egress Point, NO GRE, Static Destination Routing",
+                                                                  "1 GGSN/SSR, 2 Egress Points to Separate Networks, Not Redudannt, GRE, BGP Routing ",
+                                                                  "1 GGSN/SSR, 2 Egress Points to Separate Networks, NO GRE, Static Destination Routing",
+                                                                  "1 GGSN/SSR, 2 Egress Points to (Redundant Links), GRE, BGP Routing",
+                                                                  "2 GGSNs/SSRs, 1 Egress Point, GRE, Static Source Routing",
+                                                                  "2 GGSNs/SSRs, 1 Egress Point, GRE, BGP Routing",
+                                                                  "2 GGSNs/SSRs, 1 Egress Point, NO GRE, BGP Routing",
+
+                                                          ])%>
+
+
+
+    <% end %>
+
+    <%= f.submit "Submit" %>
 <% end %>
 
+f

@@ -36,11 +36,11 @@
         <%= f.text_field :email %>
       </p>
       <p>
-        <%= f.label :phone_number1 %>
+        <%= f.label 'Main Phone' %>
         <%= f.text_field :phone_number1 %>
       </p>
       <p>
-        <%= f.label :phone_number2 %>
+        <%= f.label 'Cell Phone' %>
         <%= f.text_field :phone_number2 %>
       </p>
       <%= link_to_remove_association "Remove Contact", f, wrapper_class: 'contact' %>
