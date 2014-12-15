@@ -1,0 +1,19 @@
+<div class="node">
+  Please select a NODE for
+  <%= f.select :ssr_location, options_for_select([
+                                                            "Toronto",
+                                                            "Montreal",
+                                                            "Vancouver"
+                                                    ])%>
+
+  <p>
+    <!--this code below is a nested cocoon form for tunnels-->
+    Tunnel Information:<br>
+    <%= f.fields_for :tunnels do |tunnel| %>
+        <% render "tunnel_fields", f: tunnel %>
+    <% end %>
+    <!--link_to_add_association is a cocoon method for this adding a nested form-->
+    <%= link_to_add_association "Add Tunnel", f, :tunnels %>
+  </p>
+  <%= link_to_remove_association "Remove Node", f, wrapper_class: 'node' %>
+</div>

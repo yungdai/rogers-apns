@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141213235305) do
+ActiveRecord::Schema.define(version: 20141215172246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20141213235305) do
     t.string   "project_name"
     t.string   "project_number"
     t.string   "redundancy_type"
+    t.string   "m2m_communications"
+    t.string   "radius_jasper_proxy_filter"
   end
 
   create_table "contacts", force: true do |t|
