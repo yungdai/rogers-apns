@@ -1,6 +1,6 @@
 <div class="tunnel">
   <p>
-    <%= f.label "Mobile Device IP range:" %>
+    <%= f.label :rogers_mobile_ip, "Mobile Device IP range:" %>
     <%= f.text_field :rogers_mobile_ip %>
     For GRE Based APN, please choose your own IP address range<br>
 
@@ -11,7 +11,7 @@
     If any part of this address ranges conflict with your network, please Source NAT to adequate address range.<br>
   </p>
   <p>
-    <%= f.label "Destination/Server IP addresses:" %>
+    <%= f.label :customer_server_ip, "Destination/Server IP addresses:" %>
     <%= f.text_field :customer_server_ip %>
     For GRE APNs, destination addresses will be the Customer GRE Physical Endpoints.<br>
 
@@ -26,15 +26,39 @@
     -	Rogers Wireless will not allow routing of any Public IP through a VPN tunnel that is not exclusively owned and used by the customer.<br>
 
   </p>
-  <p>
-    <!--this code below is a nested cocoon form for tunnels contacts-->
-    <h3>VPN Tunnel Contact Information:</h3><br>
-    <%= f.fields_for :contacts do |contact| %>
-        <% render "vpn_contact_fields", f: contact %>
-    <% end %>
-    <!--link_to_add_association is a cocoon method for this adding a nested form-->
-    <%= link_to_add_association "Add Tunnel", f, :tunnels %>
-  </p>
+  <% if current_user.administrator? %>
+      <p>
+      <%= f.select :rogers_vpn_ip, options_for_select([
+                                                             "74.198.28.1 Toronto",
+                                                             "74.198.64.1 Montreal",
+                                                             "74.198.148.1 Vancouver"
+                                                     ])%>
+      </p>
+
+  <% end %>
+      <p>
+        <%= f.label :customer_vpn_ip, "Customer VPN Device IP Address:" %>
+        <%= f.text_field :customer_vpn_ip %>
+      <p>
+      <p>
+        <%= f.label :customer_vpn_device_desc, "Customer VPN Device Description:" %>
+        <%= f.text_field :customer_vpn_desc %>
+      <p>
+      <p>
+        <%= f.label :customer_vpn_device_version, "Customer VPN Device Version:" %>
+        <%= f.text_field :customer_vpn_version %>
+      <p>
+        <% if current_user.administrator? %>
+      <p>
+        <%= f.label :rogers_encryption_domain, "Rogers Encryption Domain:" %>
+        <%= f.text_field :rogers_encryption_domain %>
+      <p>
+      <p>
+        <%= f.label :customer_encryption_domain, "Customer Encryption Domain:" %>
+        <%= f.text_field :customer_encryption_domain %>
+      <p>
+        <% end %>
+
       <%= link_to_remove_association "Remove Tunnel Information", f, wrapper_class: 'tunnel' %>
     </p>
 </div>
