@@ -27,6 +27,7 @@
       <%= f.fields_for :contacts do |contact| %>
           <% render "contact_fields", f: contact %>
       <% end %>
+      <!--link_to_add_association is a cocoon method for this adding a nested form-->
         <%= link_to_add_association "Add Another Contact", f, :contacts %>
     </p>
 

@@ -10,10 +10,6 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-
-
-
-
   <div class="fixed">
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
@@ -42,107 +38,28 @@
                                 <li><label>Administrative Options</label></li>
                                 <li><a href="#" class="new-user"><%= link_to "Add new user", new_user_path %></a></li>
                                 <li><a href="#" class="new-apn"><%= link_to "Add new APN", new_apn_path %></li>
+                                </ul>
                                   <!--if the user is not an administrator they will see this following menu-->
                             <% else %>
                                 <a class="active" href="#">User options</a>
-
                                 <ul class="dropdown">
                                 <li><label>Section Name</label></li>
                                 <li><a href="#" class="new-apn"><%= link_to "Add new APN", new_apn_path %></a></li>
-                                <li><a href="#">Dropdown Option</a></li>
-
+                                <li><a href="#">possible new drop down option</a></li>
+                                </ul>
                             <% end %>
-
-                <% else %>
-                    <!--if the user is not logged in the only option is to login-->
-                        <a class="active" href="#">Login Options</a>
-
-                        <ul class="dropdown">
-                        <li><a href="#" class="login"><%= link_to "Login", :login %></a></li>
                 <% end %>
-
-
-              <li><a href="#">Dropdown Option</a></li>
-              <li class="divider"></li>
-              <li><label>Section Name</label></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li class="divider"></li>
-              <li><a href="#">See all →</a></li>
             </ul>
-          </li>
-          <li class="divider"></li>
-          <li><a href="#">Main Item 2</a></li>
-          <li class="divider"></li>
-          <li class="has-dropdown">
-            <a href="#">Main Item 3</a>
-            <ul class="dropdown">
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li class="divider"></li>
-              <li><a href="#">See all →</a></li>
-            </ul>
-          </li>
-
-        </ul>
-
 
         <ul class="right">
-          <li class="divider"></li>
-          <li class="has-dropdown">
-            <a href="#">Main Item 4</a>
-            <ul class="dropdown">
-              <li><label>Section Name</label></li>
-              <li class="has-dropdown">
-                <a href="#" class="">Has Dropdown, Level 1</a>
-                <ul class="dropdown">
-                  <li><a href="#">Dropdown Options</a></li>
-                  <li><a href="#">Dropdown Options</a></li>
-                  <li class="has-dropdown">
-                    <a href="#">Has Dropdown, Level 2</a>
-                    <ul class="dropdown test">
-                      <li><a href="#">Subdropdown Option</a></li>
-                      <li><a href="#">Subdropdown Option</a></li>
-                      <li><a href="#">Subdropdown Option</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Subdropdown Option</a></li>
-                  <li><a href="#">Subdropdown Option</a></li>
-                  <li><a href="#">Subdropdown Option</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li class="divider"></li>
-              <li><label>Section Name</label></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li><a href="#">Dropdown Option</a></li>
-              <li class="divider"></li>
-              <li><a href="#">See all →</a></li>
-            </ul>
-          </li>
-          <li class="divider"></li>
-          <li><a href="#">Main Item 5</a></li>
           <li class="divider"></li>
           <li class="has-dropdown">
             <% if current_user %>
                 <a href="#"><%= current_user.name %></a>
                 <ul class="dropdown">
                   <li><%= link_to "Log Out", :logout %></li>
-            <% else %>
-                <a href="#"><%= link_to "Sign up", new_user_path %></a>
-                <ul class="dropdown">
-                <li><a href="#"><%= link_to "log in", :login %>/li>
-                  <li><a href="#">Dropdown Option</a></li>
-                <li><%= link_to "Sign up", new_user_path %></li>
-                <li></li>
-              <li class="divider"></li>
-              <li><a href="#">See all →</a></li>
-            </ul>
-            <% end %>
+                </ul>
+              <% end %>
           </li>
         </ul>
       </section>
