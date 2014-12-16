@@ -2342,6 +2342,9 @@
       <column name="apn_name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="project_name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="project_number" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="redundancy_type" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="m2m_communications" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="radius_jasper_proxy_filter" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="apns_pkey" columns="id"/>
     </table>
     <table name="apns_id_seq" schema="public" catalog="rogers-apns_development" type="SEQUENCE">
@@ -2452,6 +2455,8 @@
       <column name="customer_vpn_device_version" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
       <column name="updated_at" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="rogers_encryption_domain" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="customer_encryption_domain" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="tunnels_pkey" columns="id"/>
     </table>
     <table name="tunnels_id_seq" schema="public" catalog="rogers-apns_development" type="SEQUENCE">

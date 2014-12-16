@@ -11,18 +11,30 @@ class ApnsController < ApplicationController
   end
 
   def edit
+    @apn = Apn.find(params[:id])
+  end
+
+  def update
+    @apn = Apn.find(params[:id])
+
+    if @apn.update_attributes(apn_params)
+      redirect_to apn_path(@apn), notice: 'Successfully Updated the APN'
+    else
+      render :edit
+    end
   end
 
   def new
     @apn = Apn.new
     @apn.contacts.build
+    @apn.nodes.build
   end
 
   private
   # this private method checks to see if the current user owns a project
   def user_ownership
     @apn = Apn.find(params[:id])
-    redirect_to apn_path(@apn) unless current_user == @apn.user || current_user == @user.administrator?
+    redirect_to apn_path(@apn) unless current_user == @apn.user || current_user == @apn.user.administrator?
   end
 
   def apn_params
@@ -53,7 +65,10 @@ class ApnsController < ApplicationController
                                 :phone_number1,
                                 :phone_number2,
                                 :technical_contact,
-                                :business_contact,
+                                :business_contact
+                            ],
+                            node_attributes:[
+                                :ssr_location
                             ]
     )
   end

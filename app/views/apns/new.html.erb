@@ -42,22 +42,22 @@
       <%= f.check_box :static_ip %>
     </p>
     <p>
-      <%= f.label :conrol_center, "Control Center Required?" %>
+      <%= f.label :control_center, "Control Center Required?" %>
       <%= f.check_box :control_center %>
 
     </p>
     <% if current_user.administrator? %>
         <p>
-          <%= f.label "Control Center Account Name:" %>
+          <%= f.label :control_center_account_name, "Control Center Account Name:" %>
           <%= f.text_field :control_center_account_name %>
         </p>
         <p>
-          <%= f.label "Control Center Account ID:" %>
+          <%= f.label :control_center_account_id, "Control Center Account ID:" %>
           <%= f.text_field :control_center_account_id %>
         </p>
         <p>
         <%= f.select :radius_jasper_proxy_filter, options_for_select([
-                                                                  "Defaut: Forward Radius traffic to Control Centre based on Jasper dedicated IMSIs only ",
+                                                                  "Default: Forward Radius traffic to Control Centre based on Jasper dedicated IMSIs only",
                                                                   "Change: Modify Radius to add IMSI filtering for Jasper"
                                                           ])%>
 
@@ -66,19 +66,19 @@
     <% if current_user.administrator? %>
         <p>
           (To be filled out by Rogers)
-          <%= f.label :rogers_apn_id %>
+          <%= f.label :rogers_apn_id, "Rogers APN ID" %>
           <%= f.text_field :rogers_apn_id %>
         </p>
         <p>
-          <%= f.label :fido_apn_id %>
+          <%= f.label :fido_apn_id, "Fido APN ID (5000+Rogers APN ID):" %>
           <%= f.text_field :fido_apn_id %>
         </p>
         <p>
-          <%= f.label "MSD Code" %>
+          <%= f.label :msd_code,"MSD Code" %>
           <%= f.text_field :msd_code %>
         </p>
         <p>
-          Context ID:
+          <%= f.label :context_id, "Context ID" %>
           <%= f.text_field :context_id %>
               Max download rate: 250000000<br>
               Max upload rate: 100000000<br>
@@ -97,10 +97,10 @@
             When 2 GGSNs are used in an APN design they will automatically take over from each other should a device not be able to establish a PDP context (initiate a data session) <br>
 
             <%= f.select :redundancy_type, options_for_select([
-                                                                      "1 GGSN/SSR, 1 Egress Point, GRE, Static Source Routing ",
+                                                                      "1 GGSN/SSR, 1 Egress Point, GRE, Static Source Routing",
                                                                       "1 GGSN/SSR, 1 Egress Point, GRE, BGP Routing",
                                                                       "1 GGSN/SSR, 1 Egress Point, NO GRE, Static Destination Routing",
-                                                                      "1 GGSN/SSR, 2 Egress Points to Separate Networks, Not Redundant, GRE, BGP Routing ",
+                                                                      "1 GGSN/SSR, 2 Egress Points to Separate Networks, Not Redundant, GRE, BGP Routing",
                                                                       "1 GGSN/SSR, 2 Egress Points to Separate Networks, NO GRE, Static Destination Routing",
                                                                       "1 GGSN/SSR, 2 Egress Points to (Redundant Links), GRE, BGP Routing",
                                                                       "2 GGSNs/SSRs, 1 Egress Point, GRE, Static Source Routing",
