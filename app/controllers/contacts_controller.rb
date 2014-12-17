@@ -34,10 +34,18 @@ class ContactsController < ApplicationController
   end
 
   def edit
+    # makes sure that you find the right APN ID for that new contact first
+    @apn = Apn.find(params[:apn_id])
+    #make sure that when you create a new contact that you pass in the APN ID into the @contact (note it says contacts and not contact) You'll be passing the contact_params method
+    @contact = @apn.contacts.build
   end
 
   def update
-
+    if @contact.update_attributes(contact_params)
+      redirect_to apns_contacts_path, notice: 'Successfully Updated the APN'
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -21,7 +21,7 @@
                               Business Contact
                       <% end %>
                     </td>
-                    <td><%= button_to "Edit contact" , edit_contact_url(apn.id), :method => "get" %></td>
+                    <td><%= button_to "Edit contact" , edit_apn_contact_path[:apn_id, @apn.contact.id], :method => "get" %></td>
                   </tr>
               <% end %>
 
