@@ -20,8 +20,7 @@
           <th>Edit APN Information:</th>
           </thead>
           <tbody>
-          <% if current_user.administrator? %>
-          <!--if you are the administrator you should be able to see all APN's-->
+          <% if can?(:read, Apn) %>
               <% @apns.each do |apn| %>
                 <tr>
                   <td><%= apn.apn_name %></td>
@@ -30,16 +29,6 @@
                   <td></td>
                   <td><%= button_to "Edit" , edit_apn_url(apn.id), :method => "get" %></td>
                 </tr>
-              <% end %>
-          <% else %>
-              <% @apns.each do |apn| %>
-                  <tr>
-                    <td><%= apn.apn_name %></td>
-                    <td><%= apn.project_name  %></td>
-                    <td><%= button_to "APN Page", apn_url(apn.id), :method => "get" %></td>
-                    <td></td>
-                    <td><%= button_to "APN Page", apn_url(apn.id), :method => "get" %></td>
-                  </tr>
               <% end %>
           <% end %>
           </tbody>

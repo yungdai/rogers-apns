@@ -1,16 +1,14 @@
 class ApnsController < ApplicationController
+  # this is a CanCan thing, to
+  load_and_authorize_resource
+
   # required to be logged in to be able to see the page.
   before_action :require_login
 
-  # calls the user_ownership method for the :edit and :update commands to check to see if the user actually owns the project before they can see the edit page.
-  before_action :user_ownership, only: [:edit, :update]
+
+
   def index
-    # if you are an administrator you should be able to see all APN Projects
-    if current_user.administrator?
       @apns = Apn.all
-    else
-      @apns = current_user.apn_id.all
-    end
   end
 
   def show
@@ -47,11 +45,6 @@ class ApnsController < ApplicationController
   end
 
   private
-  # this private method checks to see if the current user owns a project
-  def user_ownership
-    @apn = Apn.find(params[:id])
-    redirect_to apn_path(@apn) unless current_user == @apn.user || current_user == current_user.administrator?
-  end
 
   def apn_params
     params.require(:apn).permit(
