@@ -21,8 +21,9 @@
 
           </thead>
           <tbody>
-          <% if can?(:read, Apn) %>
-              <% @apns.each do |apn| %>
+          <% @apns.each do |apn| %>
+              <!--checks to see if the current user can each specific @apn object-->
+              <% if can?(:read, apn) %>
                 <tr>
                   <td><%= apn.apn_name %></td>
                   <td><%= apn.project_name  %></td>

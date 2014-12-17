@@ -12,6 +12,7 @@ end
   end
 
   def show
+    @contacts = Contact.all
   end
 
   def new
