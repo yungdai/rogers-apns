@@ -5,7 +5,12 @@ class ApnsController < ApplicationController
   # calls the user_ownership method for the :edit and :update commands to check to see if the user actually owns the project before they can see the edit page.
   before_action :user_ownership, only: [:edit, :update]
   def index
-    @apns = Apn.all
+    # if you are an administrator you should be able to see all APN Projects
+    if current_user.administrator?
+      @apns = Apn.all
+    else
+      @apns = current_user.apn_id.all
+    end
   end
 
   def show
