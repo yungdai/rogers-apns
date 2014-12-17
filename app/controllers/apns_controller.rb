@@ -23,7 +23,7 @@ class ApnsController < ApplicationController
     @apn = Apn.find(params[:id])
 
     if @apn.update_attributes(apn_params)
-      redirect_to apn_path(@apn), notice: 'Successfully Updated the APN'
+      redirect_to apns_path, notice: 'Successfully Updated the APN'
     else
       render :edit
     end
@@ -37,6 +37,8 @@ class ApnsController < ApplicationController
 
   def create
     @apn = Apn.new(apn_params)
+    # ensures that when you save that the @apn.user ID is will be saved with the current_user's user.id
+    @apn.user = current_user
 
     if @apn.save
       redirect_to apns_path

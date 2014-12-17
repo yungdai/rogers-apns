@@ -46,7 +46,10 @@ gem "cocoon"
 gem 'foundation-rails'
 
 gem 'awesome_print'
+# Pry gems for pry and debugging
 gem 'pry-rails'
+gem 'pry-byebug'
+
 gem 'quiet_assets'
 
 # Use ActiveModel has_secure_password

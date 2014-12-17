@@ -16,8 +16,9 @@
           <th>APN Name:</th>
           <th>Project Name:</th>
           <th>APN Page</th>
-          <th>APN Contacts</th>
           <th>Edit APN Information:</th>
+          <th>APN Contacts</th>
+
           </thead>
           <tbody>
           <% if can?(:read, Apn) %>
@@ -26,8 +27,8 @@
                   <td><%= apn.apn_name %></td>
                   <td><%= apn.project_name  %></td>
                   <td><%= button_to "APN Page", apn_url(apn.id), :method => "get" %></td>
-                  <td></td>
-                  <td><%= button_to "Edit" , edit_apn_url(apn.id), :method => "get" %></td>
+                  <td><%= button_to "Edit APN" , edit_apn_url(apn.id), :method => "get" %></td>
+                  <td><%= button_to "Show Contacts" , contacts_index_url(apn.id), :method => "get" %></td>
                 </tr>
               <% end %>
           <% end %>

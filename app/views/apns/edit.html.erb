@@ -1,2 +1,55 @@
-<h1>Apns#edit</h1>
-<p>Find me in app/views/apns/edit.html.erb</p>
+<h1>Edit Custom APN Form</h1>
+<p>Please fill out the sections below</p>
+
+<%= form_for @apn do |f| %>
+    <% if @apn.errors.any? %>
+        <div class="error_messages">
+          <h2>Apn Form is invalid</h2>
+          <ul>
+            <% for message in @apn.errors.full_messages %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      <%= f.label :project_name %>
+      <%= f.text_field :project_name %>
+    </p>
+    <p>
+      <%= f.label :project_number %>
+      <%= f.text_field :project_number %>
+    </p>
+
+    <p>
+      <%= f.label :apn_name, "APN Name" %>
+      <%= f.text_field :apn_name %>
+    </p>
+    <p>
+      <%= f.label :static_ip, "Static IP Required?" %>
+      <%= f.check_box :static_ip %>
+    </p>
+    <p>
+      <%= f.label :control_center, "Control Center Required?" %>
+      <%= f.check_box :control_center %>
+
+    </p>
+    <% if current_user.administrator? %>
+        <p>
+          <%= f.label :control_center_account_name, "Control Center Account Name:" %>
+          <%= f.text_field :control_center_account_name %>
+        </p>
+        <p>
+          <%= f.label :control_center_account_id, "Control Center Account ID:" %>
+          <%= f.text_field :control_center_account_id %>
+        </p>
+        <p>
+          <%= f.select :radius_jasper_proxy_filter, options_for_select([
+                                                                               "Default: Forward Radius traffic to Control Centre based on Jasper dedicated IMSIs only",
+                                                                               "Change: Modify Radius to add IMSI filtering for Jasper"
+                                                                       ])%>
+    <% end %>
+
+    <%= f.submit "Submit" %>
+    <%= button_to "Cancel", apns_url, :method => "get" %>
+<% end %>

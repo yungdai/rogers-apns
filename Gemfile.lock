@@ -31,6 +31,10 @@ GEM
     awesome_print (1.2.0)
     bcrypt (3.1.9)
     builder (3.2.2)
+    byebug (3.5.1)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
     cancancan (1.9.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -45,6 +49,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    columnize (0.9.0)
+    debugger-linecache (1.2.0)
     erubis (2.7.0)
     execjs (2.2.2)
     faraday (0.9.0)
@@ -88,6 +94,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (2.0.0)
+      byebug (~> 3.4)
+      pry (~> 0.10)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     quiet_assets (1.0.3)
@@ -162,6 +171,7 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 4.2)
   pg
+  pry-byebug
   pry-rails
   quiet_assets
   rails (= 4.1.8)

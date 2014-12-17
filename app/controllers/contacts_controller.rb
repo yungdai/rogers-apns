@@ -1,5 +1,14 @@
 class ContactsController < ApplicationController
+  # this is a CanCan thing, to check to see if you're logged in before you can do anything on this page.
+  load_and_authorize_resource
+
+  # required to be logged in to be able to see the page.
+  before_action :require_login
+
+end
   def index
+    @contacts = Contact.where(apn_id: params[:apn_id])
+    @apn = params[:apn_id]
   end
 
   def show
@@ -10,6 +19,7 @@ class ContactsController < ApplicationController
   end
 
   def create
+    if @contacts.save
 
   end
 
