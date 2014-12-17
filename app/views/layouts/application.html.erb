@@ -34,19 +34,20 @@
                   <!--if the user is an administrator they will log in and have the following menus-->
                               <% if current_user.administrator? %>
                                   <a class="active" href="#">Administrative Options</a>
-
-                                  <ul class="dropdown">
-                                  <li><label>Administrative Options</label></li>
-                                  <li><a href="#" class="new-user"><%= link_to "Add new user", new_user_path %></a></li>
-                                  <li><a href="#" class="new-apn"><%= link_to "Add new APN", new_apn_path %></li>
-                                  </ul>
+                                      <ul class="dropdown">
+                                          <li><label>Administrative Options</label></li>
+                                          <li><a href="#" class="apn-index"><%= link_to "APN index page", apns_path %></a></li>
+                                          <li><a href="#" class="new-user"><%= link_to "Add new user", new_user_path %></a></li>
+                                          <li><a href="#" class="new-apn"><%= link_to "Add new APN", new_apn_path %></li>
+                                      </ul>
                                     <!--if the user is not an administrator they will see this following menu-->
                               <% else %>
                                   <a class="active" href="#">User options</a>
                                   <ul class="dropdown">
-                                  <li><label>Section Name</label></li>
-                                  <li><a href="#" class="new-apn"><%= link_to "Add new APN", new_apn_path %></a></li>
-                                  <li><a href="#">possible new drop down option</a></li>
+                                      <li><label>Section Name</label></li>
+                                      <li><a href="#" class="apn-index"><%= link_to "APN index page", apns_path %></a></li>
+                                      <li><a href="#" class="new-apn"><%= link_to "Add new APN", new_apn_path %></a></li>
+                                      <li><a href="#">possible new drop down option</a></li>
                                   </ul>
                               <% end %>
                   <% end %>

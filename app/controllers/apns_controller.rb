@@ -5,6 +5,7 @@ class ApnsController < ApplicationController
   # calls the user_ownership method for the :edit and :update commands to check to see if the user actually owns the project before they can see the edit page.
   before_action :user_ownership, only: [:edit, :update]
   def index
+    @apns = Apn.all
   end
 
   def show
@@ -26,8 +27,18 @@ class ApnsController < ApplicationController
 
   def new
     @apn = Apn.new
-    @apn.contacts.build
-    @apn.nodes.build
+
+
+  end
+
+  def create
+    @apn = Apn.new(apn_params)
+
+    if @apn.save
+      redirect_to apns_path
+    else
+      render :new
+    end
   end
 
   private
@@ -52,6 +63,9 @@ class ApnsController < ApplicationController
                             :control_center_account_id,
                             :primary_dns,
                             :secondary_dns,
+                            :redundancy_type,
+                            :m2m_communications,
+                            :radius_jasper_proxy_filter,
                             #makes sure that I can nest the contact model into the apn form
                             contact_attributes: [
                                 :first_name,
