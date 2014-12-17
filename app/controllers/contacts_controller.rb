@@ -24,9 +24,9 @@ class ContactsController < ApplicationController
   def create
     # makes sure that you find the right APN ID for that new contact first
     @apn = Apn.find(params[:apn_id])
-    #make sure that when you create a new contact that you pass in the APN ID into the @contact (note it says contacts and not contact)
-    # @contact = @apn.contacts
-    if @apn.contacts.save
+    #make sure that when you create a new contact that you pass in the APN ID into the @contact (note it says contacts and not contact) You'll be passing the contact_params method
+    @contact = @apn.contacts.build(contact_params)
+    if @contact.save
       redirect_to apn_contacts_path
     else
       render :new
