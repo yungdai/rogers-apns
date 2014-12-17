@@ -1,5 +1,5 @@
 class ApnsController < ApplicationController
-  # this is a CanCan thing, to
+  # this is a CanCan thing, to check to see if you're logged in before you can do anything on this page.
   load_and_authorize_resource
 
   # required to be logged in to be able to see the page.
