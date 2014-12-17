@@ -17,12 +17,20 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   resources :apns, only: [:new, :create, :show, :index, :edit, :update]
-  resources :contacts, only: [:new, :create, :show, :index, :edit, :update]
+  # resources :contacts, only: [:new, :create, :show, :index, :edit, :update]
+  resources :apns do
+    # ensures that you send the apn ID into the contact path so that contact saves to the correct APN ID
+    resources :contacts
+    resources :tunnels do
+      resources :tunnel_rules
+    end
+  end
+
   resources :users, only: [:new, :create, :show, :edit]
   resources :sessions, only: [:create, :destroy, :new]
   resources :nodes
-  resources :tunnels
-  resources :tunnels_rules
+  # resources :tunnels
+  # resources :tunnels_rules
   resources :users do
     member do
       get :activate

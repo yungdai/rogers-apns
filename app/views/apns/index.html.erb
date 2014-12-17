@@ -22,14 +22,14 @@
           </thead>
           <tbody>
           <% @apns.each do |apn| %>
-              <!--checks to see if the current user can each specific @apn object-->
+              <!--checks to see if the current user can each specific @apn object, if you do this again, make sure that you've passed in a specific object and not just the Class-->
               <% if can?(:read, apn) %>
                 <tr>
                   <td><%= apn.apn_name %></td>
                   <td><%= apn.project_name  %></td>
                   <td><%= button_to "APN Page", apn_url(apn.id), :method => "get" %></td>
                   <td><%= button_to "Edit APN" , edit_apn_url(apn.id), :method => "get" %></td>
-                  <td><%= button_to "Show Contacts" , contacts_index_url(apn.id), :method => "get" %></td>
+                  <td><%= button_to "Show Contacts" , apn_contacts_url(apn), :method => "get" %></td>
                 </tr>
               <% end %>
           <% end %>

@@ -1,4 +1,5 @@
-<%= form_for @contact do |f| %>
+<!--passed in an array that takes the @apn (:apn_id), @contact objects there were declared from the contact controller def new -->
+<%= form_for [@apn, @contact] do |f| %>
     <% if @contact.errors.any? %>
         <div class="error_messages">
           <h2>Contact Information is invalid</h2>
