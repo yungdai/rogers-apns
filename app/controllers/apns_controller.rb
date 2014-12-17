@@ -45,7 +45,7 @@ class ApnsController < ApplicationController
   # this private method checks to see if the current user owns a project
   def user_ownership
     @apn = Apn.find(params[:id])
-    redirect_to apn_path(@apn) unless current_user == @apn.user || current_user == @apn.user.administrator?
+    redirect_to apn_path(@apn) unless current_user == @apn.user || current_user == current_user.administrator?
   end
 
   def apn_params

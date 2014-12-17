@@ -11,17 +11,34 @@
 <div class="row">
   <div class="large-6 columns">
     <ul>
-      <% if current_user.administrator? %>
-          <% @apns.each do |apn| %>
-            <li>APN Name: <%= apn.apn_name %> | Project Name: <%= apn.project_name %>
-
-            </li>
+      <table class="APN Table">
+          <thead>
+          <th>APN Name:</th>
+          <th>Project Name:</th>
+          <th>APN Page</th>
+          <th>Edit APN Information:</th>
+          </thead>
+          <tbody>
+          <% if current_user.administrator? %>
+              <% @apns.each do |apn| %>
+                <tr>
+                  <td><%= apn.apn_name %></td>
+                  <td><%= apn.project_name  %></td>
+                  <td><%= button_to "APN Page", apn_url(apn.id), :method => "get" %></td>
+                  <td><%= button_to "Edit" , edit_apn_url(apn.id), :method => "get" %></td>
+                </tr>
+              <% end %>
+          <% else %>
+              <% current_user.apns.each do |apn| %>
+                  <tr>
+                    <td><%= apn.apn_name %></td>
+                    <td><%= apn.project_name  %></td>
+                    <td><%= button_to "APN Page", apn_url(apn.id), :method => "get" %></td>
+                  </tr>
+              <% end %>
           <% end %>
-      <% else %>
-          <% current_user.apns.each do |apn| %>
-            <li>APN Name: <%= apn.apn_name %> | Project Name: <%= apn.project_name %> </li>
-          <% end %>
-      <% end %>
+          </tbody>
+      </table>
     </ul>
   </div>
 </div>

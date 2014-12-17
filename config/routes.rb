@@ -48,8 +48,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  resources :apns, only: [:new, :create, :show, :index]
-  resources :users, only: [:new, :create, :show]
+  resources :apns, only: [:new, :create, :show, :index, :edit]
+  resources :users, only: [:new, :create, :show, :edit]
   resources :sessions, only: [:create, :destroy, :new]
   resources :nodes
   resources :tunnels
