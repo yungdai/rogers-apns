@@ -8,10 +8,11 @@ class ApnsController < ApplicationController
 
 
   def index
-      @apns = Apn.all
+    @apns = Apn.all
   end
 
   def show
+    @apns = Apn.all
   end
 
   def edit
