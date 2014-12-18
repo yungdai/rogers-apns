@@ -39,7 +39,7 @@
       <%= f.text_field :city %>
     </p>
     <p>
-      <%= f.label :province_state %>
+      <%= f.label :province_state, 'Province/State' %>
       <%= f.text_field :province_state %>
     </p>
     <p>
@@ -47,11 +47,11 @@
       <%= f.text_field :email %>
     </p>
     <p>
-      <%= f.label 'Main Phone' %>
+      <%= f.label :phone_number1, 'Main Phone' %>
       <%= f.text_field :phone_number1 %>
     </p>
     <p>
-      <%= f.label 'Cell Phone' %>
+      <%= f.label :phone_number2, 'Cell Phone' %>
       <%= f.text_field :phone_number2 %>
     </p>
     <%= f.submit "Save Changes"%>
