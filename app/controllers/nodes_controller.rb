@@ -59,6 +59,7 @@ class NodesController < ApplicationController
     params.require(:node).permit(
         :ssr_location,
         tunnels_attributes: [
+            :id,
             :nat_server_ip,
             :customer_vpn_ip,
             :customer_server_ip,

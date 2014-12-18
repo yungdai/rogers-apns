@@ -28,12 +28,13 @@
   </p>
   <% if current_user.administrator? %>
       <p>
-      <%= f.select :rogers_vpn_ip, options_for_select([
-                                                             "74.198.28.1 Toronto",
-                                                             "74.198.64.1 Montreal",
-                                                             "74.198.148.1 Vancouver"
-                                                     ])%>
-      </p>
+        Rogers VPN tunnel IP:<br>
+          <%= f.select :rogers_vpn_ip, options_for_select([
+                                                                 "74.198.28.1 Toronto",
+                                                                 "74.198.64.1 Montreal",
+                                                                 "74.198.148.1 Vancouver"
+                                                         ])%>
+          </p>
 
   <% end %>
       <p>

@@ -3,6 +3,7 @@
 <div class="row">
   <div class="large-6 columns">
     <%= form_for [@apn, @node] do |f| %>
+        Rogers NODE Location<br>
         <%= f.select :ssr_location, options_for_select([
                                                                "Toronto",
                                                                "Montreal",

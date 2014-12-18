@@ -65,7 +65,11 @@
       <div>Node Location: <%= n.ssr_location %></div>
           <% n.tunnels.each do |t| %>
           <p>
-            Rogers Mobile Device IP Range: <%= t.rogers_mobile_ip %>
+            Rogers Mobile Device IP Range: <%= t.rogers_mobile_ip %><br>
+            Customer Server/GRE Endpoint IP's: <%= t.customer_server_ip %><br>
+            Rogers VPN Tunnel Endpoint: <%= t.rogers_vpn_ip %><br>
+            Customer VPN Tunnel Endpoint IP: <%= t.customer_vpn_ip %><br>
+            <hr><hr>
           </p>
           <% end %>
           <hr>
