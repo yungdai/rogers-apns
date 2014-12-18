@@ -7,17 +7,29 @@ class NodesController < ApplicationController
   def index
     # make sure that you are seeing the APN that the Node belongs to
     @apn = Apn.find(params[:apn_id])
-    @nodes = @apn.nodes
   end
   def show
     @nodes = Node.all
   end
 
   def new
-    @node = Node.new
-    @node.tunnels.build
+    # makes sure that you find the right APN ID for that new contact first
+    @apn = Apn.find(params[:apn_id])
+    # makes sure that when you create a new node that you pass in the APN ID into the @node
+    @node = @apn.nodes.build
   end
 
+  def create
+    # makes sure that you find the right APN ID for that new node first
+    @apn = Apn.find(params[:apn_id])
+    # make sure that when you create a new node that you pass in the APN ID into the @node (note it says nodes and not node) You'll be passing the contact_params method
+    @node = @apn.nodes.build(node_params)
+    if @node.save
+      redirect_to apn_nodes_path
+    else
+      render :new
+    end
+  end
   def edit
     @node = Node.find(params[:id])
   end

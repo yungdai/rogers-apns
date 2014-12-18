@@ -7,16 +7,14 @@
         <thead>
         <th>Node Name:</th>
         <th>Edit APN Node Information:</th>
+        <th>Add Tunnels</th>
         </thead>
         <tbody>
         <% @nodes.each do |n| %>
             <tr>
-              <td><%= n.name %></td>
-              <td>
-
-              </td>
-              <!--pass in the @contact.apn_id and @contact.id into the edit_apn_contact_path-->
-              <td><%= button_to "Edit Node" , edit_apn_contact_path(n.apn_id, n.id), :method => "get" %></td>
+              <td><%= n.ssr_location %></td>
+              <td><%= button_to "Edit Node" , edit_apn_node_path(n.apn_id, n.id), :method => "get" %></td>
+              <td><%= button_to "Show Tunnel Information", apn_node_tunnels_path(@apn), :method => "get" %></td>
             </tr>
         <% end %>
         </tbody>

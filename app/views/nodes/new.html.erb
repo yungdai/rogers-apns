@@ -1,3 +1,14 @@
-<h1>Nodes#new</h1>
-<p>Find me in app/views/nodes/new.html.erb</p>
+<!--passed in an array that takes the @apn (:apn_id), @contact objects there were declared from the node controller def new -->
+<div class="row">
+  <div class="large-6 columns">
+    <%= form_for [@apn, @node] do |f| %>
+        <%= f.select :ssr_location, options_for_select([
+                                                               "Toronto",
+                                                               "Montreal",
+                                                               "Vancouver"
+                                                       ])%>
+        <%= f.submit "Select Node"%>
+    <% end %>
+  </div>
+</div>
 

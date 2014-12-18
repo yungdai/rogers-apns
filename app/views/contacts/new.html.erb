@@ -1,58 +1,62 @@
 <!--passed in an array that takes the @apn (:apn_id), @contact objects there were declared from the contact controller def new -->
-<%= form_for [@apn, @contact] do |f| %>
-    <% if @contact.errors.any? %>
-        <div class="error_messages">
-          <h2>Contact Information is invalid</h2>
-          <ul>
-            <% for message in @contact.errors.full_messages %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
+<div class="row">
+  <div class="large-6 columns">
+    <%= form_for [@apn, @contact] do |f| %>
+        <% if @contact.errors.any? %>
+            <div class="error_messages">
+              <h2>Contact Information is invalid</h2>
+              <ul>
+                <% for message in @contact.errors.full_messages %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+        <p>
+          <%= f.label :business_contact %>
+          <%= f.check_box :business_contact %>
+        </p>
+        <p>
+          <%= f.label :technical_contact %>
+          <%= f.check_box :technical_contact %>
+        </p>
+        <p>
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </p>
+        <p>
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </p>
+        <p>
+          <%= f.label :company_name %>
+          <%= f.text_field :company_name %>
+        </p>
+        <p>
+          <%= f.label :street_address %>
+          <%= f.text_field :street_address %>
+        </p>
+        <p>
+          <%= f.label :city %>
+          <%= f.text_field :city %>
+        </p>
+        <p>
+          <%= f.label :province_state %>
+          <%= f.text_field :province_state %>
+        </p>
+        <p>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </p>
+        <p>
+          <%= f.label 'Main Phone' %>
+          <%= f.text_field :phone_number1 %>
+        </p>
+        <p>
+          <%= f.label 'Cell Phone' %>
+          <%= f.text_field :phone_number2 %>
+        </p>
+        <%= f.submit "Add Contact"%>
     <% end %>
-    <p>
-      <%= f.label :business_contact %>
-      <%= f.check_box :business_contact %>
-    </p>
-    <p>
-      <%= f.label :technical_contact %>
-      <%= f.check_box :technical_contact %>
-    </p>
-    <p>
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-    </p>
-    <p>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-    </p>
-    <p>
-      <%= f.label :company_name %>
-      <%= f.text_field :company_name %>
-    </p>
-    <p>
-      <%= f.label :street_address %>
-      <%= f.text_field :street_address %>
-    </p>
-    <p>
-      <%= f.label :city %>
-      <%= f.text_field :city %>
-    </p>
-    <p>
-      <%= f.label :province_state %>
-      <%= f.text_field :province_state %>
-    </p>
-    <p>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </p>
-    <p>
-      <%= f.label 'Main Phone' %>
-      <%= f.text_field :phone_number1 %>
-    </p>
-    <p>
-      <%= f.label 'Cell Phone' %>
-      <%= f.text_field :phone_number2 %>
-    </p>
-    <%= f.submit "Add Contact"%>
-<% end %>
+   </div>
+</div>

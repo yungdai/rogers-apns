@@ -1,5 +1,6 @@
 class TunnelsController < ApplicationController
   def show
+    @tunnels = Tunnel.all
   end
 
   def new
