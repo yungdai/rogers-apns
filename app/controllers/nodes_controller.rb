@@ -31,14 +31,16 @@ class NodesController < ApplicationController
     end
   end
   def edit
-    @node = Node.find(params[:id])
+    # makes sure that you find the right APN ID for that new contact first
+    @apn = Apn.find(params[:apn_id])
+    @node = @apn.nodes.find(params[:id])
   end
 
   def update
     @node = Node.find(params[:id])
 
     if @node.update_attributes(node_params)
-      redirect_to apn_path(@apn), notice: 'Successfully Updated the Node Information'
+      redirect_to apn_nodes_path, notice: 'Successfully Updated the Node Information'
     end
   end
 

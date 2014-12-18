@@ -3,7 +3,12 @@
 <div class="row">
   <div class="large-6 columns">
     <%= form_for [@apn, @node] do |f| %>
-        <%= render 'node_selection', f: f %>
+        <%= f.select :ssr_location, options_for_select([
+                                                               "Toronto",
+                                                               "Montreal",
+                                                               "Vancouver"
+                                                       ])%>
+        <%= f.submit "Select Node"%>
     <% end %>
   </div>
 </div>
