@@ -52,6 +52,14 @@ gem 'pry-byebug'
 
 gem 'quiet_assets'
 
+# need better errors so I can type into console while in the browser.
+group :development do
+  gem 'better_errors'
+  # added this gem so I can get a REPL inside my broswer
+  gem 'binding_of_caller'
+end
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
