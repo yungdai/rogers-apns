@@ -1,2 +1,63 @@
 <h1>Tunnels#edit</h1>
 <p>Find me in app/views/tunnels/edit.html.erb</p>
+
+
+<p>
+  <%= f.label :rogers_mobile_ip, "Mobile Device IP range:" %>
+  <%= f.text_field :rogers_mobile_ip %>
+  For GRE Based APN, please choose your own IP address range<br>
+
+  For iMPLS-Based APNs (i.e., AS812), please choose your own IP address range, except the range 192.168.0.0/16.<br>
+
+  For APNs without GRE, specify how many IP’s are required.  Device IP addresses will be assigned from the 10.100.0.0/16 to 10.217.0.0/16 IP range by Rogers.<br>
+
+  If any part of this address ranges conflict with your network, please Source NAT to adequate address range.<br>
+</p>
+<p>
+  <%= f.label :customer_server_ip, "Destination/Server IP addresses:" %>
+  <%= f.text_field :customer_server_ip %>
+  For GRE APNs, destination addresses will be the Customer GRE Physical Endpoints.<br>
+
+  For APNs without GRE will use private IPs assigned from the 10.100.0.0/16 to 10.217.0.0/16 IP range by Rogers unless public IP’s are provided.<br>
+
+  For AS812 MPLS Links All of the customer’s server IP’s are reachable<br>
+
+  Note:  The customer can create a 1:1 NAT to access the real addresses of their hosts/servers.)<br>
+
+  Note:<br>
+  -	If you supply Rogers with Public IP addresses for your servers you will not be able to connect to those servers from ANY GPRS Internet services (Internet.com or VPN.com) provided by Rogers Wireless once the routing work orders are implemented.  If you are currently running your application on either of these 2 Internet services and wish to have NO service interruptions please make this known to a Rogers Wireless Technical Services Consultant.<br>
+  -	Rogers Wireless will not allow routing of any Public IP through a VPN tunnel that is not exclusively owned and used by the customer.<br>
+
+</p>
+<% if current_user.administrator? %>
+    <p>
+      <%= f.select :rogers_vpn_ip, options_for_select([
+                                                              "74.198.28.1 Toronto",
+                                                              "74.198.64.1 Montreal",
+                                                              "74.198.148.1 Vancouver"
+                                                      ])%>
+    </p>
+
+<% end %>
+<p>
+  <%= f.label :customer_vpn_ip, "Customer VPN Device IP Address:" %>
+  <%= f.text_field :customer_vpn_ip %>
+<p>
+<p>
+  <%= f.label :customer_vpn_device_desc, "Customer VPN Device Description:" %>
+  <%= f.text_field :customer_vpn_device_desc %>
+<p>
+<p>
+  <%= f.label :customer_vpn_device_version, "Customer VPN Device Version:" %>
+  <%= f.text_field :customer_vpn_device_version %>
+<p>
+  <% if current_user.administrator? %>
+    <p>
+      <%= f.label :rogers_encryption_domain, "Rogers Encryption Domain:" %>
+      <%= f.text_field :rogers_encryption_domain %>
+    <p>
+    <p>
+      <%= f.label :customer_encryption_domain, "Customer Encryption Domain:" %>
+      <%= f.text_field :customer_encryption_domain %>
+    <p>
+<% end %>

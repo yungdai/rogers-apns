@@ -1,13 +1,22 @@
 class ApnsController < ApplicationController
+  # this is a CanCan thing, to check to see if you're logged in before you can do anything on this page.
+  load_and_authorize_resource
+
   # required to be logged in to be able to see the page.
   before_action :require_login
 
-  # calls the user_ownership method for the :edit and :update commands to check to see if the user actually owns the project before they can see the edit page.
-  before_action :user_ownership, only: [:edit, :update]
+
+
   def index
+    # ensures that when you display @apns it's in the order by the apn.id
+    @apns = Apn.order(id: :asc).all
   end
 
   def show
+    # ensures that when you display @apns it's in the order by the apn.id
+    @apns = Apn.order(id: :asc).all
+    @contacts = Contact.order(id: :asc).all
+    @node = Node.order(id: :asc).all
   end
 
   def edit
@@ -18,7 +27,7 @@ class ApnsController < ApplicationController
     @apn = Apn.find(params[:id])
 
     if @apn.update_attributes(apn_params)
-      redirect_to apn_path(@apn), notice: 'Successfully Updated the APN'
+      redirect_to apns_path, notice: 'Successfully Updated the APN'
     else
       render :edit
     end
@@ -26,16 +35,21 @@ class ApnsController < ApplicationController
 
   def new
     @apn = Apn.new
-    @apn.contacts.build
-    @apn.nodes.build
+  end
+
+  def create
+    @apn = Apn.new(apn_params)
+    # ensures that when you save that the @apn.user ID is will be saved with the current_user's user.id
+    @apn.user = current_user
+
+    if @apn.save
+      redirect_to apns_path
+    else
+      render :new
+    end
   end
 
   private
-  # this private method checks to see if the current user owns a project
-  def user_ownership
-    @apn = Apn.find(params[:id])
-    redirect_to apn_path(@apn) unless current_user == @apn.user || current_user == @apn.user.administrator?
-  end
 
   def apn_params
     params.require(:apn).permit(
@@ -52,6 +66,10 @@ class ApnsController < ApplicationController
                             :control_center_account_id,
                             :primary_dns,
                             :secondary_dns,
+                            :redundancy_type,
+                            :m2m_communications,
+                            :radius_jasper_proxy_filter,
+                            :company_name,
                             #makes sure that I can nest the contact model into the apn form
                             contact_attributes: [
                                 :first_name,

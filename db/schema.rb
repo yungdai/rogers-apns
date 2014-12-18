@@ -11,23 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141215192719) do
+ActiveRecord::Schema.define(version: 20141218183245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "apns", force: true do |t|
-    t.string   "rogers_apn_id"
-    t.string   "fido_apn_id"
+    t.integer  "rogers_apn_id"
+    t.integer  "fido_apn_id"
     t.string   "msd_code"
     t.boolean  "static_ip"
     t.boolean  "control_center"
-    t.string   "context_id"
+    t.integer  "context_id"
     t.string   "control_center_account_name"
     t.string   "control_center_account_id"
     t.string   "primary_dns"
     t.string   "secondary_dns"
     t.integer  "contact_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "apn_name"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20141215192719) do
     t.string   "redundancy_type"
     t.string   "m2m_communications"
     t.string   "radius_jasper_proxy_filter"
+    t.string   "company_name"
   end
 
   create_table "contacts", force: true do |t|
@@ -71,6 +73,7 @@ ActiveRecord::Schema.define(version: 20141215192719) do
     t.text     "remarks"
     t.string   "rogers_source_ip"
     t.string   "customer_source_ip"
+    t.integer  "tunnel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -109,7 +112,6 @@ ActiveRecord::Schema.define(version: 20141215192719) do
     t.string   "phone_number2"
     t.boolean  "administrator"
     t.string   "username"
-    t.integer  "apn_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_me_token"

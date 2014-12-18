@@ -13,6 +13,10 @@
         </div>
     <% end %>
     <p>
+      <%= f.label :company_name, 'Company Name' %>
+      <%= f.text_field :company_name %>
+    </p>
+    <p>
       <%= f.label :project_name %>
       <%= f.text_field :project_name %>
     </p>
@@ -20,19 +24,7 @@
       <%= f.label :project_number %>
       <%= f.text_field :project_number %>
     </p>
-<hr>
-    <p>
-      <!--this code below is a nested cocoon form for contacts-->
-      APN Contact Information:
-      <%= f.fields_for :contacts do |contact| %>
-          <% render "contact_fields", f: contact %>
-      <% end %>
-      <!--link_to_add_association is a cocoon method for this adding a nested form-->
-        <%= link_to_add_association "Add Another Contact", f, :contacts %>
-    </p>
 
-<hr>
-<hr>
     <p>
       <%= f.label :apn_name, "APN Name" %>
       <%= f.text_field :apn_name %>
@@ -60,111 +52,7 @@
                                                                   "Default: Forward Radius traffic to Control Centre based on Jasper dedicated IMSIs only",
                                                                   "Change: Modify Radius to add IMSI filtering for Jasper"
                                                           ])%>
-
     <% end %>
 
-    <% if current_user.administrator? %>
-        <p>
-          (To be filled out by Rogers)
-          <%= f.label :rogers_apn_id, "Rogers APN ID" %>
-          <%= f.text_field :rogers_apn_id %>
-        </p>
-        <p>
-          <%= f.label :fido_apn_id, "Fido APN ID (5000+Rogers APN ID):" %>
-          <%= f.text_field :fido_apn_id %>
-        </p>
-        <p>
-          <%= f.label :msd_code,"MSD Code" %>
-          <%= f.text_field :msd_code %>
-        </p>
-        <p>
-          <%= f.label :context_id, "Context ID" %>
-          <%= f.text_field :context_id %>
-              Max download rate: 250000000<br>
-              Max upload rate: 100000000<br>
-              QoS profile (HSS-EsmQosProfileQci): 8<br>
-              Priority (HSS-EsmQosProfileArp): 10<br>
-              Charging Chars (HSS-EsmEpsBearerChargingChars) : 9<br>
-              PDN Type: V4  OR V6 or Dual stack V4V6 <br>
-
-              </p>
-    <h3>Select Redundancy Type:</h3>
-
-            Select one of the following designs…<br>
-            <br>
-            Note:  Please ensure a discussion has taken place with regards to the type of redundancy required.<br>
-            Note: Please fill out BGP/GRE form in Appendix if applicable.<br>
-            When 2 GGSNs are used in an APN design they will automatically take over from each other should a device not be able to establish a PDP context (initiate a data session) <br>
-
-            <%= f.select :redundancy_type, options_for_select([
-                                                                      "1 GGSN/SSR, 1 Egress Point, GRE, Static Source Routing",
-                                                                      "1 GGSN/SSR, 1 Egress Point, GRE, BGP Routing",
-                                                                      "1 GGSN/SSR, 1 Egress Point, NO GRE, Static Destination Routing",
-                                                                      "1 GGSN/SSR, 2 Egress Points to Separate Networks, Not Redundant, GRE, BGP Routing",
-                                                                      "1 GGSN/SSR, 2 Egress Points to Separate Networks, NO GRE, Static Destination Routing",
-                                                                      "1 GGSN/SSR, 2 Egress Points to (Redundant Links), GRE, BGP Routing",
-                                                                      "2 GGSNs/SSRs, 1 Egress Point, GRE, Static Source Routing",
-                                                                      "2 GGSNs/SSRs, 1 Egress Point, GRE, BGP Routing",
-                                                                      "2 GGSNs/SSRs, 1 Egress Point, NO GRE, Destination Routing",
-                                                                      "2 GGSNs/SSRs, 2 Egress Points per GGSN/SSR to Separate Networks, Data Paths Not Redundant, GRE, BGP, Routing",
-                                                                      "2 GGSNs/SSRs, 2 Egress Points per GGSN/SSR to Separate Networks, Data Paths Not Redundant, No GRE, Static Destination Routing",
-                                                                      "2 GGSNs/SSRs, 2 Egress Points per GGSN/SSR (Redundant Links), GRE, BGP Routing",
-                                                                      "Other Design"
-                                                              ])%>
-
-
-
-        <% end %>
-    <p>
-      <!--this code below is a nested cocoon form for nodes-->
-      Node Information:<br>
-      <%= f.fields_for :nodes do |node| %>
-          <% render "node_fields", f: node %>
-      <% end %>
-      <!--link_to_add_association is a cocoon method for this adding a nested form-->
-      <%= link_to_add_association "Add Node", f, :nodes %>
-    </p>
-    <p>
-        Please select from one of the types of mobile to mobile communications:<br>
-        <%= f.select :m2m_communications, options_for_select([
-                                                                     "Mobile to Mobile Communication is Denied (Default)",
-                                                                     "Mobile to Mobile Communication is Required"
-                                                             ])%>
-    </p>
-    <div id="dns-info">
-        <p>
-        <h3>DNS Information:</h3><br>
-        </p>
-        <p>
-          <%= f.label :primary_dns, "Primary DNS IP" %>
-          <%= f.text_field :primary_dns %>
-        </p>
-        <p>
-          <%= f.label :secondary_dns, "Secondary DNS" %>
-          <%= f.text_field :secondary_dns %>
-        </p>
-        <p>
-          GRE APN:<br>
-          DNS server are assigned and determined by the customer and always routed through the WAN<br>
-
-          APN’s without GRE DNS:<br>
-          IP addresses will be assigned out of the following 10.100.0.0/16 to 10.217.0.0/16 IP range by Rogers.  Public IP DNS will always be routed through the internet by Rogers.  Private IP DNS will be routed to the customers WAN<br>
-
-        </p>
-        <p>
-          EDNS is required:<br>
-        </p>
-    </div>
-    <div id="ports-protcols">
-      <h3>Ports and Protocol:</h3>
-      By default all ports and protocols will be open bidirectional.<br>
-
-      Note:  If you require access to X11 Service: TCP 6000-6063 for your application and require bi-directional access, you must specifically request this.<br>
-
-      Note:  The customer is responsible for any traffic entering their own LAN or network coming from any external data source.  Rogers recommends that you use whatever measures necessary to secure your network from outside intruders.<br>
-
-    </div>
-
-    <hr>
     <%= f.submit "Submit" %>
 <% end %>

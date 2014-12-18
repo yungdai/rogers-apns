@@ -1,0 +1,28 @@
+<h1>Node Information for APN:<%= @apn.apn_name %></h1>
+
+<div class="row">
+  <div class="large-6 columns">
+    <ul>
+      <table class="Node Table">
+        <thead>
+        <th>Node Name:</th>
+        <th>Edit APN Node Information:</th>
+        <th>Edit Tunnel Information for Node:</th>
+        <th>Delete Node</th>
+        </thead>
+        <tbody>
+        <% @nodes.each do |n| %>
+            <tr>
+              <td><%= n.ssr_location %></td>
+              <td><%= button_to "Edit Node" , edit_apn_node_path(n.apn_id, n.id), :method => "get" %></td>
+              <td>Place Holder for Edit Tunnel</td>
+              <td><%= button_to "Delete", apn_node_path(n.apn_id, n.id), :method => "delete"%></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= button_to "Add Node", new_apn_node_path(@apn), :method => "get" %>
+    </ul>
+    <%= button_to "Back", apns_url, :method => "get" %>
+  </div>
+</div>
