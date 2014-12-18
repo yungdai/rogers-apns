@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
 
   def index
     @apn = Apn.find(params[:apn_id])
-    @contacts = @apn.contacts
+    @contacts = @apn.contacts.order(id: :asc)
   end
 
   def show

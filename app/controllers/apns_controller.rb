@@ -16,6 +16,7 @@ class ApnsController < ApplicationController
     # ensures that when you display @apns it's in the order by the apn.id
     @apns = Apn.order(id: :asc).all
     @contacts = Contact.order(id: :asc).all
+    @node = Node.order(id: :asc).all
   end
 
   def edit

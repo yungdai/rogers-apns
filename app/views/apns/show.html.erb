@@ -1,29 +1,39 @@
 <h1><%= @apn.apn_name %> APN Form</h1>
 
-
-
-<p>Template for this show</p>
-
 <div class="row">
 
   <div class="large-3 columns">
     <div class="panel">
       <h5>Contact Information</h5>
-      <p>Contact Name: </p>
+            <ul>
+                  <% @apn.contacts.each do |c| %>
+
+                      <%if c.technical_contact? %>
+                      <div>Technical Contact:</div>
+                      <% else%>
+                      <div>Business Contact:</div>
+                      <% end %>
+                  Contact Name: <%= c.name %><br>
+                  <hr>
+                  <% end %>
+            </ul>
     </div>
   </div>
   <div class="large-6 columns">
     <div class="panel">
-      <h5>Panel Title</h5>
-      <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+    <p> Project Name: <%= @apn.project_name%></p>
+      <p>Project Number: <%= @apn.project_number %></p>
+
     </div>
   </div>
   <div class="large-3  columns">
     <div class="panel">
-      <h5>Panel Title</h5>
-      <p>This is a three columns grid panel with an arbitrary height.</p>
+      <h5>Node Information</h5>
+      <% @apn.nodes.each do |n| %>
+      <div>Node Location: <%= n.ssr_location %></div>
+          <hr>
+      <% end %>
     </div>
   </div>
-
 </div>
 
