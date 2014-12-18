@@ -7,9 +7,10 @@ class NodesController < ApplicationController
   def index
     # make sure that you are seeing the APN that the Node belongs to
     @apn = Apn.find(params[:apn_id])
+    @nodes = @apn.nodes.order(id: :asc).all
   end
   def show
-    @nodes = Node.all
+    @nodes = Node.order(id: :asc).all
   end
 
   def new
@@ -45,6 +46,11 @@ class NodesController < ApplicationController
   end
 
   def destroy
+    # makes sure that you find the right APN ID for that new contact first
+    @apn = Apn.find(params[:apn_id])
+    @node = @apn.nodes.find(params[:id])
+    @node.destroy
+    redirect_to apn_nodes_path, notice: 'Node was deleted'
   end
 
   private
@@ -52,9 +58,10 @@ class NodesController < ApplicationController
   def node_params
     params.require(:node).permit(
         :ssr_location,
-        tunnel_attributes: [
+        tunnels_attributes: [
             :nat_server_ip,
             :customer_vpn_ip,
+            :customer_server_ip,
             :rogers_vpn_ip,
             :rogers_mobile_ip,
             :rogers_gre_tunnel_ip,
@@ -64,7 +71,8 @@ class NodesController < ApplicationController
             :rogers_vpn_device_version,
             :customer_vpn_device_version,
             :rogers_encryption_domain,
-            :customer_encryption_domain
+            :customer_encryption_domain,
+            :_destroy
         ]
     )
   end

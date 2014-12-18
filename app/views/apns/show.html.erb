@@ -63,6 +63,11 @@
       <h5>Node Information</h5>
       <% @apn.nodes.each do |n| %>
       <div>Node Location: <%= n.ssr_location %></div>
+          <% n.tunnels.each do |t| %>
+          <p>
+            Rogers Mobile Device IP Range: <%= t.rogers_mobile_ip %>
+          </p>
+          <% end %>
           <hr>
       <% end %>
     </div>
