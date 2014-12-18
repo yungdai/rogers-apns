@@ -8,11 +8,14 @@ class ApnsController < ApplicationController
 
 
   def index
-    @apns = Apn.all
+    # ensures that when you display @apns it's in the order by the apn.id
+    @apns = Apn.order(id: :asc).all
   end
 
   def show
-    @apns = Apn.all
+    # ensures that when you display @apns it's in the order by the apn.id
+    @apns = Apn.order(id: :asc).all
+    @contacts = Contact.order(id: :asc).all
   end
 
   def edit
@@ -31,8 +34,6 @@ class ApnsController < ApplicationController
 
   def new
     @apn = Apn.new
-
-
   end
 
   def create
