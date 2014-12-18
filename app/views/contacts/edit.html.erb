@@ -1,5 +1,5 @@
-<h1>Edit Contact</h1>
-<%= form_for @contact do |f| %>
+<h1>Edit APN Contact</h1>
+<%= form_for [@apn, @contact] do |f| %>
     <% if @contact.errors.any? %>
         <div class="error_messages">
           <h2>Contact Information is invalid</h2>
@@ -54,5 +54,5 @@
       <%= f.label 'Cell Phone' %>
       <%= f.text_field :phone_number2 %>
     </p>
-    <%= f.submit "Add Contact"%>
+    <%= f.submit "Save Changes"%>
 <% end %>

@@ -42,7 +42,7 @@ class ContactsController < ApplicationController
 
   def update
     if @contact.update_attributes(contact_params)
-      redirect_to apns_contacts_path, notice: 'Successfully Updated the APN'
+      redirect_to apn_contacts_path, notice: 'Successfully Updated the APN Contact'
     else
       render :edit
     end
