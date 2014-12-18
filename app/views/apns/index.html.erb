@@ -18,6 +18,7 @@
           <th>APN Page</th>
           <th>Edit APN Information:</th>
           <th>APN Contacts</th>
+          <th>APN Node Information</th>
 
           </thead>
           <tbody>
@@ -30,6 +31,7 @@
                   <td><%= button_to "APN Page", apn_url(apn.id), :method => "get" %></td>
                   <td><%= button_to "Edit APN" , edit_apn_url(apn.id), :method => "get" %></td>
                   <td><%= button_to "Show Contacts" , apn_contacts_url(apn), :method => "get" %></td>
+                  <td><%= button_to "Show Node Information", apn_nodes_url(apn), :method =>"get" %></td>
                 </tr>
               <% end %>
           <% end %>

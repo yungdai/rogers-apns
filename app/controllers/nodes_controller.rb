@@ -1,5 +1,16 @@
 class NodesController < ApplicationController
+  # this is a CanCan thing, to check to see if you're logged in before you can do anything on this page.
+  load_and_authorize_resource
+
+  # required to be logged in to be able to see the page.
+  before_action :require_login
+  def index
+    # make sure that you are seeing the APN that the Node belongs to
+    @apn = Apn.find(params[:apn_id])
+    @nodes = @apn.nodes
+  end
   def show
+    @nodes = Node.all
   end
 
   def new

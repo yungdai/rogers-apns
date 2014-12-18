@@ -1,0 +1,28 @@
+<h1>Node Information for APN:<%= @apn.apn_name %></h1>
+
+<div class="row">
+  <div class="large-6 columns">
+    <ul>
+      <table class="Node Table">
+        <thead>
+        <th>Node Name:</th>
+        <th>Edit APN Node Information:</th>
+        </thead>
+        <tbody>
+        <% @nodes.each do |n| %>
+            <tr>
+              <td><%= n.name %></td>
+              <td>
+
+              </td>
+              <!--pass in the @contact.apn_id and @contact.id into the edit_apn_contact_path-->
+              <td><%= button_to "Edit Node" , edit_apn_contact_path(n.apn_id, n.id), :method => "get" %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= button_to "Add Node", new_apn_node_path(@apn), :method => "get" %>
+    </ul>
+
+  </div>
+</div>

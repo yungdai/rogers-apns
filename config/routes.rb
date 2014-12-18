@@ -21,14 +21,16 @@ Rails.application.routes.draw do
   resources :apns do
     # ensures that you send the apn ID into the contact path so that contact saves to the correct APN ID
     resources :contacts
-    resources :tunnels do
-      resources :tunnel_rules
+    resources :nodes do
+      resources :tunnels do
+        resources :tunnel_rules
+        end
     end
   end
 
+
   resources :users, only: [:new, :create, :show, :edit]
   resources :sessions, only: [:create, :destroy, :new]
-  resources :nodes
   # resources :tunnels
   # resources :tunnels_rules
   resources :users do

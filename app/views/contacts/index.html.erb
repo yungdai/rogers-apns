@@ -2,13 +2,12 @@
 
 <div class="row">
     <div class="large-6 columns">
-      <%= link_to "Add Contact", new_apn_contact_path(@apn) %>
       <ul>
         <table class="Contact Table">
           <thead>
           <th>Contact Name:</th>
           <th>Contact Type:</th>
-          <th>Edit APN Information:</th>
+          <th>Edit APN Contact Information:</th>
           </thead>
           <tbody>
               <% @contacts.each do |c| %>
@@ -24,12 +23,12 @@
                           <!--pass in the @contact.apn_id and @contact.id into the edit_apn_contact_path-->
                     <td><%= button_to "Edit contact" , edit_apn_contact_path(c.apn_id, c.id), :method => "get" %></td>
                   </tr>
-              <% end %>
+                      <% end %>
+          <% end %>
           </tbody>
         </table>
-
+        <%= button_to "Add Contact", new_apn_contact_path(@apn), :method => "get" %>
       </ul>
 
     </div>
 </div>
-<% end %>
