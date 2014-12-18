@@ -1,4 +1,4 @@
-<h1><%= @apn.apn_name %> APN Form</h1>
+<h1><%= @apn.company_name %> <%= @apn.apn_name %> APN Form</h1>
 
 <div class="row">
 
@@ -6,23 +6,55 @@
     <div class="panel">
       <h5>Contact Information</h5>
             <ul>
+              <p>
                   <% @apn.contacts.each do |c| %>
 
                       <%if c.technical_contact? %>
-                      <div>Technical Contact:</div>
+                      Technical Contact:
                       <% else%>
-                      <div>Business Contact:</div>
+                      Business Contact:
                       <% end %>
-                  Contact Name: <%= c.name %><br>
+                  Contact Name: <%= c.name %>
                   <hr>
                   <% end %>
+              </p>
             </ul>
     </div>
   </div>
   <div class="large-6 columns">
     <div class="panel">
-    <p> Project Name: <%= @apn.project_name%></p>
-      <p>Project Number: <%= @apn.project_number %></p>
+      <h5>APN Information:</h5>
+    <p>
+      Project Name: <%= @apn.project_name%><br>
+      Project Number: <%= @apn.project_number %><br>
+      APN Name: <%= @apn.apn_name %>
+      Rogers APN ID: <%= @apn.rogers_apn_id %><br>
+      Fido APN ID: <%= @apn.fido_apn_id %><br>
+      Redundancy Type: <%= @apn.redundancy_type %><br>
+      Mobile to Mobile Communications: <%= @apn.m2m_communications %><br>
+      <% if @apn.static_ip? %>
+          APN Type: Static IP<br>
+      <% else %>
+          APN Type: Dynamic IP<br>
+      <% end %>
+      <br>
+      Context ID: <%= @apn.context_id %><br>
+      Max download rate: 250000000<br>
+      Max upload rate: 100000000<br>
+      QoS profile (HSS-EsmQosProfileQci): 8<br>
+      Priority (HSS-EsmQosProfileArp): 10<br>
+      Charging Chars (HSS-EsmEpsBearerChargingChars) : 9<br>
+      PDN Type: V4  OR V6 or Dual stack V4V6 <br>
+      <br>
+      <% if @apn.control_center? %>
+          Contact Center: Yes<br>
+          Control Center Account Name: <%= @apn.control_center_account_name %><br>
+          Control Center Account ID: <%= @apn.control_center_account_id %><br>
+          Radius Jasper Proxy Filter: <%= @apn.radius_jasper_proxy_filter %><br>
+      <% else %>
+          Control Center: No<br>
+      <% end %>
+    </p>
 
     </div>
   </div>

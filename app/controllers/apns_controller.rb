@@ -69,6 +69,7 @@ class ApnsController < ApplicationController
                             :redundancy_type,
                             :m2m_communications,
                             :radius_jasper_proxy_filter,
+                            :company_name,
                             #makes sure that I can nest the contact model into the apn form
                             contact_attributes: [
                                 :first_name,
