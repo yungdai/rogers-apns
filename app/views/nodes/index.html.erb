@@ -14,7 +14,7 @@
             <tr>
               <td><%= n.ssr_location %></td>
               <td><%= button_to "Edit Node" , edit_apn_node_path(n.apn_id, n.id), :method => "get" %></td>
-              <td><%= button_to "Delete", apn_node_path(n.apn_id, n.id), :method => "delete"%></td>
+              <td><%= button_to "Delete", apn_node_path(n.apn_id, n.id), :confirm => "Are you sure you want delete this node?", :method => "delete"%></td>
             </tr>
         <% end %>
         </tbody>
