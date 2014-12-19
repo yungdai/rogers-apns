@@ -8,6 +8,7 @@
           <th>Contact Name:</th>
           <th>Contact Type:</th>
           <th>Edit APN Contact Information:</th>
+          <th>Delete Contact</th>
           </thead>
           <tbody>
               <% @contacts.each do |c| %>
@@ -16,14 +17,14 @@
                     <td>
                       <%if c.technical_contact? %>
                               Technical Contact
-                      <% else if c.business_contact? %>
-                              Business Contact
+                      <% else %>
+                          Business Contact
                       <% end %>
                     </td>
                           <!--pass in the @contact.apn_id and @contact.id into the edit_apn_contact_path-->
                     <td><%= button_to "Edit contact" , edit_apn_contact_path(c.apn_id, c.id), :method => "get" %></td>
+                          <td><%= button_to "Delete", apn_contact_path(c.apn_id, c.id), :method => "delete"%></td>
                   </tr>
-                      <% end %>
           <% end %>
           </tbody>
         </table>

@@ -35,7 +35,7 @@
                           <% if current_user.administrator? %>
                               <a class="active" href="#">Administrative Options</a>
                                   <ul class="dropdown">
-                                      <li><label>Administrative Options</label></li>
+                                      <!--<li><label>Administrative Options</label></li>-->
                                       <li><a href="#" class="apn-index"><%= link_to "APN index page", apns_path %></a></li>
                                       <li><a href="#" class="new-user"><%= link_to "Add new user", new_user_path %></a></li>
                                       <li><a href="#" class="new-apn"><%= link_to "Add new APN", new_apn_path %></li>
@@ -44,10 +44,10 @@
                           <% else %>
                               <a class="active" href="#">User options</a>
                               <ul class="dropdown">
-                                  <li><label>Section Name</label></li>
+                                  <!--<li><label>Section Name</label></li>-->
                                   <li><a href="#" class="apn-index"><%= link_to "APN index page", apns_path %></a></li>
                                   <li><a href="#" class="new-apn"><%= link_to "Add new APN", new_apn_path %></a></li>
-                                  <li><a href="#">possible new drop down option</a></li>
+                                  <!--<li><a href="#">possible new drop down option</a></li>-->
                               </ul>
                           <% end %>
                   <% end %>

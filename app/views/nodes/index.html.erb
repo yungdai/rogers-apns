@@ -7,7 +7,6 @@
         <thead>
         <th>Node Name:</th>
         <th>Edit APN Node Information:</th>
-        <th>Edit Tunnel Information for Node:</th>
         <th>Delete Node</th>
         </thead>
         <tbody>
@@ -15,7 +14,6 @@
             <tr>
               <td><%= n.ssr_location %></td>
               <td><%= button_to "Edit Node" , edit_apn_node_path(n.apn_id, n.id), :method => "get" %></td>
-              <td>Place Holder for Edit Tunnel</td>
               <td><%= button_to "Delete", apn_node_path(n.apn_id, n.id), :method => "delete"%></td>
             </tr>
         <% end %>
