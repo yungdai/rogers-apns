@@ -2346,6 +2346,7 @@
       <column name="redundancy_type" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="m2m_communications" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="radius_jasper_proxy_filter" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="company_name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="apns_pkey" columns="id"/>
     </table>
     <table name="apns_id_seq" schema="public" catalog="rogers-apns_development" type="SEQUENCE">

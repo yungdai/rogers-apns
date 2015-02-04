@@ -49,6 +49,11 @@ class ContactsController < ApplicationController
   end
 
   def destroy
+    # makes sure that you find the right APN ID for that contact first
+    @apn = Apn.find(params[:apn_id])
+    @node = @apn.contacts.find(params[:id])
+    @contact.destroy
+    redirect_to apn_contacts_path, notice: 'Contact was deleted'
   end
   private
   def contact_params

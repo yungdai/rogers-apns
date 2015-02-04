@@ -1,80 +1,106 @@
-<h1><%= @apn.company_name %> <%= @apn.apn_name %> APN Form</h1>
+<h1 xmlns="http://www.w3.org/1999/html"><%= @apn.company_name %> <%= @apn.apn_name %> APN Form</h1>
 
-<div class="row">
 
-  <div class="large-3 columns">
-    <div class="panel">
-      <h5>Contact Information</h5>
-            <ul>
-              <p>
-                  <% @apn.contacts.each do |c| %>
-
-                      <%if c.technical_contact? %>
-                      Technical Contact:
-                      <% else%>
-                      Business Contact:
-                      <% end %>
-                  Contact Name: <%= c.name %>
-                  <hr>
-                  <% end %>
-              </p>
-            </ul>
-    </div>
-  </div>
-  <div class="large-6 columns">
-    <div class="panel">
-      <h5>APN Information:</h5>
+<dl class="tabs" data-tab>
+  <dd class="active"><a href="#panel1">Main APN Information</a></dd>
+  <dd><a href="#panel2">Contact Information</a></dd>
+  <dd><a href="#panel3">Tunnel Information</a></dd>
+</dl>
+<div class="tabs-content">
+  <div class="content active" id="panel1">
     <p>
-      Project Name: <%= @apn.project_name%><br>
-      Project Number: <%= @apn.project_number %><br>
-      APN Name: <%= @apn.apn_name %>
-      Rogers APN ID: <%= @apn.rogers_apn_id %><br>
-      Fido APN ID: <%= @apn.fido_apn_id %><br>
-      Redundancy Type: <%= @apn.redundancy_type %><br>
-      Mobile to Mobile Communications: <%= @apn.m2m_communications %><br>
-      <% if @apn.static_ip? %>
-          APN Type: Static IP<br>
-      <% else %>
-          APN Type: Dynamic IP<br>
-      <% end %>
-      <br>
-      Context ID: <%= @apn.context_id %><br>
-      Max download rate: 250000000<br>
-      Max upload rate: 100000000<br>
-      QoS profile (HSS-EsmQosProfileQci): 8<br>
-      Priority (HSS-EsmQosProfileArp): 10<br>
-      Charging Chars (HSS-EsmEpsBearerChargingChars) : 9<br>
-      PDN Type: V4  OR V6 or Dual stack V4V6 <br>
-      <br>
-      <% if @apn.control_center? %>
-          Contact Center: Yes<br>
-          Control Center Account Name: <%= @apn.control_center_account_name %><br>
-          Control Center Account ID: <%= @apn.control_center_account_id %><br>
-          Radius Jasper Proxy Filter: <%= @apn.radius_jasper_proxy_filter %><br>
-      <% else %>
-          Control Center: No<br>
-      <% end %>
-    </p>
-
-    </div>
-  </div>
-  <div class="large-3  columns">
-    <div class="panel">
-      <h5>Node Information</h5>
-      <% @apn.nodes.each do |n| %>
-      <div>Node Location: <%= n.ssr_location %></div>
-          <% n.tunnels.each do |t| %>
+    <div class="large-6 columns">
+      <div class="panel">
+        <h4>Main APN Information</h4>
           <p>
-            Rogers Mobile Device IP Range: <%= t.rogers_mobile_ip %><br>
-            Customer Server/GRE Endpoint IP's: <%= t.customer_server_ip %><br>
-            Rogers VPN Tunnel Endpoint: <%= t.rogers_vpn_ip %><br>
-            Customer VPN Tunnel Endpoint IP: <%= t.customer_vpn_ip %><br>
-            <hr><hr>
+            <strong>Project Name:</strong> <%= @apn.project_name%><br>
+            <strong>Project Number:</strong> <%= @apn.project_number %><br>
+            <strong>APN Name:</strong> <%= @apn.apn_name %><br>
+            <strong>Rogers APN ID:</strong> <%= @apn.rogers_apn_id %><br>
+            <strong>Fido APN ID:</strong><%= @apn.fido_apn_id %><br>
+            <strong>Redundancy Type:</strong><br>
+            <%= @apn.redundancy_type %><br>
+            <br>
+            <strong>Mobile to Mobile Communications:</strong><br>
+            <%= @apn.m2m_communications %><br>
+            <br>
+            <% if @apn.static_ip? %>
+                <strong>APN Type:</strong> Static IP<br>
+            <% else %>
+                <strong>APN Type:</strong> Dynamic IP<br>
+            <% end %>
+            <br>
+            <strong>Context ID:</strong> <%= @apn.context_id %><br>
+            <strong>Max download rate:</strong> 250000000<br>
+            <strong>Max upload rate:</strong> 100000000<br>
+            <strong>QoS profile (HSS-EsmQosProfileQci):</strong> 8<br>
+            <strong>Priority (HSS-EsmQosProfileArp):</strong> 10<br>
+            <strong>Charging Chars (HSS-EsmEpsBearerChargingChars):</strong> 9<br>
+            <strong>PDN Type:</strong> V4  OR V6 or Dual stack V4V6 <br>
+            <br>
+            <% if @apn.control_center? %>
+                <strong>Contact Center:</strong> Yes<br>
+                <strong>Control Center Account Name:</strong> <%= @apn.control_center_account_name %><br>
+                <strong>Control Center Account ID:</strong <%= @apn.control_center_account_id %><br>
+                <strong>Radius Jasper Proxy Filter:</strong>
+                <%= @apn.radius_jasper_proxy_filter %><br>
+            <% else %>
+                Control Center: No
+            <% end %>
           </p>
-          <% end %>
-          <hr>
-      <% end %>
-    </div>
   </div>
 </div>
+
+
+</p>
+  </div>
+  <div class="content" id="panel2">
+    <div class="large-6 columns">
+      <div class="panel">
+        <h4>Contact Information</h4>
+        <p>
+          <% @apn.contacts.each do |c| %>
+              <%if c.technical_contact? %>
+                  <strong>Technical Contact:</strong><br>
+              <% else%>
+                  <strong>Business Contact:</strong><br>
+              <% end %>
+              <strong>Contact Name:</strong><br>
+              <%= c.name %><br>
+              <strong>Email Address:</strong><br>
+              <%= c.email %>
+              <strong>Company Name: </strong><br>
+              <%= c.company_name %>
+              <hr>
+          <% end %>
+        </p>
+        </div>
+      </div>
+  </div>
+  <div class="content" id="panel3">
+    <div class="large-6 columns">
+      <div class="panel">
+        <h4>Tunnel Information</h4>
+        <p>
+        <% @apn.nodes.each do |n| %>
+            <div><strong>Node Location:</strong> <%= n.ssr_location %></div>
+            <hr>
+            <% n.tunnels.each do |t| %>
+                <p>
+                  <strong>Tunnel Information:</strong><br><br>
+                  <strong>Rogers Mobile Device IP Range:</strong> <%= t.rogers_mobile_ip %><br>
+                  <strong>Customer Server/GRE Endpoint IP's:</strong> <%= t.customer_server_ip %><br>
+                  <strong>Rogers VPN Tunnel Endpoint:</strong> <%= t.rogers_vpn_ip %><br>
+                  <strong>Customer VPN Tunnel Endpoint IP:</strong> <%= t.customer_vpn_ip %><br>
+                  <br>
+                  <br>
+            <% end %>
+        <% end %>
+        </p>
+        <hr>
+        </div>
+      </div>
+  </div>
+</div>
+
 
