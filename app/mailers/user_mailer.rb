@@ -13,7 +13,7 @@ class UserMailer < ActionMailer::Base
     @user = user
     @url  = "http://arcane-plains-1704.herokuapp.com/#{user.activation_token}/activate"
     mail(:to => user.email,
-         :subject => "Welcome to My Awesome Site")
+         :subject => "Welcome to the Rogers Custom APN Form Site!")
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
