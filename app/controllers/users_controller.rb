@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   # required to be logged in to be able to see the page.
-  before_action :require_login
+  # before_action :require_login
 
   def new
     @user = User.new

@@ -11,7 +11,7 @@ class Ability
         # checks to see if the APN user :user_id is equal to the current_user.id
         can [:read, :create, :edit, :update], Apn, :user_id => user.id
       end
-    #
+  #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
