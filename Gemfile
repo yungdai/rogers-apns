@@ -46,7 +46,7 @@ gem "cocoon"
 # foundating gem for look and feel
 gem 'foundation-rails'
 
-
+gem 'rails_12factor'
 
 # need better errors so I can type into console while in the browser.
 group :development do
