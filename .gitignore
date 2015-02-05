@@ -19,9 +19,6 @@
 
 .idea/rogers-apns.iml
 
-config/environment.rb
-
-config/environment.rb
 
 # Ignore application configuration
 /config/application.yml
