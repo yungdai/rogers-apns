@@ -9,7 +9,7 @@
 admin = User.new
 admin.first_name = 'Yung'
 admin.last_name = 'Dai'
-admin.email = 'yungchidai@gmail.com'
+admin.email = 'yung_dai@rogers.com'
 admin.company_name = 'Works for myself'
 admin.street_address = '375 Berkeley St.'
 admin.city = 'Toronto'
