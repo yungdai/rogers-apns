@@ -27,7 +27,7 @@
                 <li id="red-style" class="divider"></li>
                 <li class="has-dropdown">
                   <!--check to see if the user is logged in-->
-                <li><%= link_to "Add new APN", new_apn_path, html_options = { :id => "red-style" }  %></li>
+                <li><%= link_to "Add new user", new_user_path, html_options = { :id => "red-style" }  %></a></li>
                   <% if logged_in? %>
                   <!--if the user is an administrator they will log in and have the following menus-->
                           <% if current_user.administrator? %>
